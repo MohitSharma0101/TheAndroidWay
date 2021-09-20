@@ -1,11 +1,11 @@
 import React from 'react'
-import HomePage from '../components/HomePage'
+import SnippetPage from '../../components/SnippetsPage'
 
 
 export default function home() {
     return (
         <div >
-            <HomePage/>
+            <SnippetPage/>
         </div>
     )
 }

@@ -1,0 +1,134 @@
+@import "mixins";
+
+$secondary-dark: #2e2e2e;
+$on-secondary-dark: #414141;
+$primary-green: #2fca77;
+$tag-color: #121212;
+$secondary-blue: #0070f3;
+
+.title{
+  font-size: 4rem;
+  color: #fff;
+  margin: 2rem;
+
+  h1{
+    font-weight: bold;
+    opacity: 90%;
+  }
+
+  p{
+    font-size: 1rem;
+    opacity: 80%;
+    margin-left: 1rem;
+  }
+}
+
+.content{
+  margin-left:2rem;
+  opacity: 90%;
+}
+
+.snippetSection {
+  width: 100%;
+  padding-bottom: 5rem;
+  background-color: $secondary-dark;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem 0;
+}
+
+.snippetConatiner {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+
+  @include tablet() {
+    width:95%;
+  }
+
+}
+
+.listCard{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+  flex-direction: column;
+
+  
+  .codeContainer{
+    display : none;
+  }
+}
+
+.snippetCard {
+  width: 70%;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: transform .2s; 
+  background-color: $on-secondary-dark;
+  margin: 1.5rem;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+    &:hover{
+      transform: scale(1.1);
+    }
+
+  @include tablet() {
+    width:100%;
+  }
+
+  @include mobile() {
+    
+  }
+
+  .codeContainer{
+      background-color:#121212;
+      color:#fff;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      overflow:auto;
+  }
+
+
+  h1 {
+    color: $primary-green;
+    margin-bottom: 0.2rem;
+    margin-top: 0.4rem;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    font-weight: 500;
+  }
+
+  h3 {
+    margin: 0.4rem 0;
+    color: white;
+    opacity: 85%;
+  }
+
+  p {
+    margin: 0.4rem 0;
+    color: white;
+  }
+
+  .tag {
+    color: white;
+    background-color: $tag-color;
+    width: fit-content;
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.4rem;
+    text-align: center;
+    margin: 0.5rem 0;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+  }
+}

@@ -2,6 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background-color: #121212;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -11,6 +12,44 @@ a {
   text-decoration: none;
 }
 
+
+
 * {
   box-sizing: border-box;
 }
+
+.token.comment{
+	color: #dadada;
+}
+
+.token.keyword{
+  color: deeppink;
+}
+
+.token.operator{
+  color: #F3F3F9;
+}
+
+.token.boolean{
+  color: #FF66C4;
+}
+
+.token.number{
+  color: #fff;
+}
+
+.token.function {
+	color: #29B6F6;
+}
+
+.token.parameter{
+  color: white;
+}
+
+.token.punctuation {
+	color: hsl(0, 0%, 100%);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

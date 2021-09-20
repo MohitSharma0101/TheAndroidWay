@@ -1,0 +1,249 @@
+$code-background-color: #2E2E2E;
+$quote-font-color: #d4d4d4;
+$primary-blue: #00afff;
+$font-color: #fafafa;
+$blog-container-color: #242424;
+$tag-color: #101010;
+
+@mixin mobile() {
+  @media (max-width: 700px) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @media (max-width: 1080px) {
+    @content;
+  }
+}
+
+.playerContainer {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  margin: 2rem 0;
+
+  .player {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.coverContainer {
+  width: 60rem;
+  margin-top: 4rem;
+  margin-left: 6rem;
+
+  .blogCover {
+    border-radius: 2rem;
+
+    @include tablet() {
+      border-radius: 0rem;
+    }
+  }
+
+  @include tablet() {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.blogContainer {
+  width: 100%;
+  background-color: $blog-container-color;
+  padding-left: 6.5rem;
+  margin-top: -8rem;
+  display: flex;
+  flex-direction: column;
+
+  @include mobile() {
+    width: 100%;
+  }
+
+  @include tablet() {
+    padding: 1rem;
+    justify-content: center;
+  }
+}
+
+.content {
+  margin-top: 8.5rem;
+  width: 70%;
+
+  @include tablet() {
+    width: 100%;
+  }
+
+  .date {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    color: white;
+    opacity: 85%;
+
+    @include mobile() {
+      font-size: 1rem;
+    }
+  }
+
+  .blogHeading {
+    color: $primary-blue;
+    font-size: 3rem;
+    overflow-wrap: break-word;
+    font-weight: bold;
+    line-height: 3.6rem;
+    margin-top: 1rem;
+
+    @include mobile() {
+      font-size: 2.5rem;
+      line-height: 2.6rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .blogTag {
+    color: white;
+    width: fit-content;
+    text-align: center;
+    margin-top: 0.4rem;
+    letter-spacing: 0.1em;
+    margin-left: 0;
+    background-color: $tag-color;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+.readNextSection {
+  h4 {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin: 2rem 0;
+  }
+
+  .readNextcontainer {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mobile() {
+      padding: 0;
+    }
+  }
+}
+
+.mdx {
+  text-align: start;
+  color: $font-color;
+  font-size: 1rem;
+  overflow-wrap: break-word;
+  padding-bottom: 2rem;
+
+  p {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    margin: 1.5rem 0;
+
+    @include mobile() {
+      font-size: 1rem;
+      line-height: 1rem;
+      line-height: 1.8rem;
+    }
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin: 2.5rem 0 1rem 0;
+    font-weight: bold;
+    line-height: 1.3333333;
+
+    @include mobile() {
+      font-size: 1.5rem;
+    }
+  }
+
+  h1 {
+    font-size: 2.9rem;
+    margin: 1.5rem 0;
+    font-weight: bold;
+    line-height: 1.33;
+
+    @include mobile() {
+      font-size: 2.9rem;
+    }
+  }
+
+  ul {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    list-style-type: disc;
+    margin-left: 1.5rem;
+  }
+
+  li {
+    margin: 1.5rem;
+    margin-right: 0;
+
+    @include mobile() {
+      margin: 1.5rem 0;
+      font-size: 1rem;
+      line-height: 1rem;
+      line-height: 1.8rem;
+    }
+  }
+
+  img {
+    margin: 2.5rem 0;
+  }
+
+  code {
+    background-color: $code-background-color;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  pre {
+    width: 80%;
+    background-color: $code-background-color;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow: auto;
+    font-size: 1rem;
+    margin: 2rem 1rem;
+
+
+    code {
+      background-color: transparent;      
+      color: $font-color;
+    }
+
+    @include mobile() {
+      width: 100%;
+      margin: 1rem 0;
+      padding: 1rem;
+    }
+  }
+
+
+
+  blockquote {
+    color: $quote-font-color;
+    border-left: 5px solid $primary-blue;
+    padding: 0 0.8rem;
+    padding-right: 0;
+  }
+
+  a {
+    color: white;
+    opacity: 100%;
+    cursor: pointer;
+  }
+}

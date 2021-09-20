@@ -1,0 +1,203 @@
+import Player from '../../../components/YoutubePlayer'
+import Post from '../../../components/post'
+
+
+
+export const meta = {
+  title: 'Instagram Double-Tap to Like Animation in Jetpack Compose',
+  author: 'Mohit Sharma'
+}
+
+I always find it amusing how Instagram creates such beautiful animations and as I was trying jetpack compose I thought let's try to build a double-tap to like animation and you won't believe how easy it was to create such animation.
+
+In case you haven't like any picture on Instagram let me show you how it looks like👇
+
+### DEMO
+
+<Player url = "https://www.youtube.com/embed/dTcQzJy4w_M" />
+
+Interested? Let's cook it..!!
+
+But before I reveal the recipe to you let's understand some basics.  
+(feel free to skip it if you are already comfortable with Compose)
+
+## 1. Remember The State
+
+If you are new to Jetpack compose `remember` and `Mutable States` might be giving you a hard time let me make it easy for you.
+
+We know that `Composable` is just a `UI function` with some arguments and the current argument this composable hold represents a `UI State`. If the argument changes android gonna `Recompose` this composable and it's smart enough to redraw only the part which is changed.
+
+Now you might be wondering, what if I need to conserve a variable value during Recomposition - well we use `remember` for that.  
+and ya, what if I need to recompose manually by changing the states -  we use `Mutable State` for that.  
+Well, this might not be the technical definition you see on google but this is what practically it is.
+
+Now, We only need to play the animation when the user likes the pick or double-tap. 
+That's how we code this👇
+
+
+```
+var isLike by remember {
+        mutableStateOf(false)
+ }
+``` 
+
+## 2. Animate the States
+
+As I discussed right now that the `UI States` are just some values a composable hold at a current time and as the **State changes, Recomposition happens.** Compose provides some graceful way to **animate** those changes. In my previous [blog](https://theandroidway.hashnode.dev/how-to-create-a-pulse-loading-animation-in-jetpack-compose), We have used `Infinite Transition API` and today we gonna use `Animate as State API`.
+
+Out of the box, Compose provides `animate*AsState` functions for `Float`, `Color`, `Dp`, `Size`, `Bounds`, `Offset`, `Rect`, `Int`, `IntOffset`, and `IntSize`.  
+But we only need `animateDpAsState()` function.
+
+Now, the basic approach to animation is we need a heart icon and make it beat for likes. 💗  
+and to make our heart jump we need springs.  
+which takes us to the third ingredient.  
+
+## 3. Spring
+
+`spring` creates a physics-based animation between start and end values. It takes 2 parameters: `dampingRatio` and `stiffness`.
+
+`dampingRatio` defines how bouncy the spring should be. The default value is `Spring.DampingRatioNoBouncy`.
+
+`stiffness` defines how fast the spring should move toward the end value. The default value is `Spring.StiffnessMedium`.  
+You can play around with these values and find the right one for you.
+
+Since we only need to **animate the size** of our heart icon that's how we do it👇
+
+
+```
+val animatedSize by animateDpAsState(
+        targetValue = if (isLike) size else 0.dp,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessLow // you can choose custom value too like 400f
+        )
+    )
+``` 
+
+Ok, now we have covered all the basics which make it easy for you to understand this animation.  
+So, Let me reveal the recipe now..!!
+
+This is how our UI will look like.
+
+![Instagram double-tap to like Animation in Jetpack Compose.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629036946091/G0_kOcdj8.png)
+
+and this is how we animate it.
+![Instagram double-tap to like Animation in Jetpack Compose (1).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1629036982009/T1dHPhgIC.png)
+
+Infographics are cool, right?   
+With this, You must be having a rough idea by now what we need to do to achieve this animation.
+
+We need a `Box` container with an Image inside and a Heart Icon which is only visible when `isLike` is `true`. 
+
+That's how the code looks 👇
+
+```
+Box(modifier = Modifier.fillMaxSize()) {
+        Image(
+            painter = painterResource(id = imageResources),
+            contentDescription = "Image",
+            modifier = Modifier
+                .align(Alignment.Center)
+                .pointerInput(Unit) {
+                    detectTapGestures(
+                        onDoubleTap = {
+                            isLike = true
+                            onDoubleTap()
+                        }
+                    )
+                })
+        if (isLike) {
+            Icon(
+                painterResource(id = iconResource),
+                tint = Color.White,
+                modifier = Modifier
+                    .size(animatedSize)
+                    .align(Alignment.Center),
+                contentDescription = ""
+            )
+        }
+    }
+```
+
+Now the last thing we need to cover is Heart Icon should be gone once the animation ends so to achieve that we need an if check, when the `animatedSize` property reaches the size we specified for our icon we need to hide the icon so we just change the value of `isLike` to `false` and rest, is handled by Compose.
+
+```
+if (animatedSize == size) {
+     isLike = false
+}
+```
+
+Ok now let's put it all together and start cooking..!!
+
+```
+@Composable
+fun DoubleTapAnimation(
+    imageResources: Int,
+    iconResource: Int,
+    size:Dp = 250.dp,
+    onDoubleTap:()->Unit
+) {
+    var isLike by remember {
+        mutableStateOf(false)
+    }
+    val animatedSize by animateDpAsState(
+        targetValue = if (isLike) size else 0.dp,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = 500f // because I like it this way
+        )
+    )
+    Box(modifier = Modifier.fillMaxSize()) {
+        Image(
+            painter = painterResource(id = imageResources),
+            contentDescription = "Image",
+            modifier = Modifier
+                .align(Alignment.Center)
+                .pointerInput(Unit) {
+                    detectTapGestures(
+                        onDoubleTap = {
+                            isLike = true
+                            onDoubleTap()
+                        }
+                    )
+                })
+        if (isLike) {
+            Icon(
+                painterResource(id = iconResource),
+                tint = Color.White,
+                modifier = Modifier
+                    .size(animatedSize)
+                    .align(Alignment.Center),
+                contentDescription = ""
+            )
+            if (animatedSize == size) {
+                isLike = false
+            }
+        }
+    }
+}
+```
+
+Yup, The dish is ready.   
+And that's how we can serve it.
+
+```
+@Composable
+fun EasyDemo() {
+        DoubleTapAnimation(
+            imageResources = R.drawable.test_img,
+            iconResource = R.drawable.heart_filled_white
+        ){
+            //on Double-tap callback function
+            Log.d("pick","liked")
+        }
+}
+```
+
+> let's meet on Instagram  [@coding.ms](https://www.instagram.com/coding.ms/) . I daily upload useful Tips, News, Interview Questions, and Code Snippets about android development. 
+
+🔖 Make sure to save this blog for later reads..!
+
+## **Happy Composing 💟**
+
+export default ({ children }) => <Post meta ={meta}>{children}</Post>

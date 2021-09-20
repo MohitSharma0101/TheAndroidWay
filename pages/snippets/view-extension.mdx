@@ -1,0 +1,30 @@
+import Snippets from '../../components/Snippets'
+
+export const meta = {
+  title: 'View Extensions',
+  desc : 'A list of all View Extensions',
+  author: 'Mohit Sharma'
+}
+
+- ## View.gone()
+
+Change the visibilty of the View to View.GONE.
+
+```javascript
+fun View.gone() {
+    this.visibility = View.GONE
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+export default ({ children }) => <Snippets meta ={meta}>{children}</Snippets>
