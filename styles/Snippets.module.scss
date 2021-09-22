@@ -48,7 +48,7 @@ $secondary-blue: #0070f3;
   justify-content: center;
   align-items: center;
 
-  @include tablet() {
+  @include mobile() {
     width:95%;
   }
 

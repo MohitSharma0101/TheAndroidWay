@@ -119,8 +119,6 @@ $secondary-blue: #0070f3;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.5rem;
-  margin-bottom: 0rem;
 
   h1 {
     color: $secondary-blue;
@@ -153,18 +151,17 @@ $secondary-blue: #0070f3;
 
 .searchContainer {
   width: 60%;
-  height: 5.5rem;
+  height: 5rem;
   background-color: $on-secondary-dark;
   border-radius: 1.5rem;
   display: flex;
   margin-top: -2.8rem;
   align-self: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
-  @media (max-width: 900px) {
-    width: 85%;
-  }
 
   @include mobile() {
+    width: 85%;
     height: 4.5rem;
     border-radius: 1.2rem;
     margin: -2.5rem;

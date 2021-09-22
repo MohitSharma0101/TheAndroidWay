@@ -54,8 +54,8 @@ export default function Post({ children, meta }) {
               loader={myLoader}
               src={title}
               alt="blog-cover"
-              width={1080}
-              height={600}
+              width={720}
+              height={400}
             />
           </div>
 

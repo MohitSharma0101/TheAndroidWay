@@ -23,7 +23,7 @@ const snippets = [
     tag: tags.viewExtension,
   },
   {
-    code: "null",
+    code: "",
     title: "View Extentions",
     desc: "List of all View Extentions",
     tag: tags.viewExtension,
