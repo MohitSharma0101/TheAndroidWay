@@ -5,13 +5,13 @@ const tags = {
 
 const snippets = [
   {
-    code: "View.gone()",
+    code: "fun View.gone(){...}",
     title: "Remove the View",
     desc: "change the visibilty of the View to View.GONE",
     tag: tags.viewExtension,
   },
   {
-    code: "View.visible()",
+    code: "fun View.visible(){...}",
     title: "Show the View",
     desc: "change the visibilty of the View to View.VISIBLE",
     tag: tags.viewExtension,

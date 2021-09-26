@@ -20,7 +20,7 @@ const categories = [
     title: "Blog",
     desc: "Learn android development by in-dept tutorial blogs.",
     color: "#29B6F6",
-    svg: <Image src="/icons/blog.svg" width="40" height="40" alt="Snippets" />,
+    svg: <Image src="/icons/blog.svg" width="40" height="40" alt="Blog" />,
     link: "/blog",
   },
   {
@@ -28,7 +28,7 @@ const categories = [
     desc: "Get ready made moden compose UI components.",
     color: "#EF3A5D",
     svg: (
-      <Image src="/icons/compose.svg" width="30" height="30" alt="Snippets" />
+      <Image src="/icons/compose.svg" width="30" height="30" alt="Compose UI" />
     ),
     link: "/blog",
   },
@@ -45,7 +45,7 @@ const categories = [
     title: "Android Quiz",
     desc: "Hand curated List of most asked Android Questions.",
     color: "#FA7419",
-    svg: <Image src="/icons/quiz.svg" width="30" height="30" alt="Snippets" />,
+    svg: <Image src="/icons/quiz.svg" width="30" height="30" alt="Quiz" />,
     link: "/blog",
   },
   {
@@ -53,7 +53,7 @@ const categories = [
     desc: "Get a complete roadmap to learn android with resources and projects.",
     color: "#FF66C4",
     svg: (
-      <Image src="/icons/roadmap.svg" width="40" height="40" alt="Snippets" />
+      <Image src="/icons/roadmap.svg" width="40" height="40" alt="Roadmap" />
     ),
     link: "/blog",
   },
@@ -62,7 +62,7 @@ const categories = [
     desc: "An awesom collection of android liraries.",
     color: "#B380F4",
     svg: (
-      <Image src="/icons/libraries.svg" width="40" height="40" alt="Snippets" />
+      <Image src="/icons/libraries.svg" width="40" height="40" alt="Libraries" />
     ),
     link: "/blog",
   },

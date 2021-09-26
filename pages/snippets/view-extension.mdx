@@ -1,14 +1,29 @@
 import Snippets from '../../components/Snippets'
+import Anchor from '../../components/Anchor'
 
 export const meta = {
-  title: 'View Extensions',
+  title: 'View Extension',
   desc : 'A list of all View Extensions',
   author: 'Mohit Sharma'
 }
 
-- ## View.gone()
+export const index = [
+  "Remove the View",
+  "Show the View"
+]
 
-Change the visibilty of the View to View.GONE.
+<Anchor> Remove the View </Anchor>
+
+Change the visibilty of the `View` to `View.GONE`.
+
+### Usage:
+Call it on any `View`
+
+```javascript
+myView.gone()
+```
+
+### Source:
 
 ```javascript
 fun View.gone() {
@@ -16,13 +31,48 @@ fun View.gone() {
 }
 ```
 
-- ## View.visible()
+---
 
-Change the visibilty of the View to View.VISIBLE.
+<Anchor>Show the View</Anchor>
+
+Change the visibilty of the `View` to `View.VISIBLE`.
+
+### Usage:
+Call it on any `View`
+
+```javascript
+myView.visible()
+```
+### Source:
 
 ```javascript
 fun View.visible() {
     this.visibility = View.VISIBLE
+}
+```
+
+---
+
+<Anchor>Resize the View</Anchor>
+
+Set Width and height of a View Programmatically.
+
+### Usage
+Call it on any `View`
+```javascript
+myView.resize(50 , 100)
+```
+
+### Code 
+
+```javascript
+fun View.resize(width: Int, height: Int) {
+    val lp = layoutParams
+    lp?.let {
+        lp.width = width
+        lp.height = height
+        layoutParams = lp
+    }
 }
 ```
 

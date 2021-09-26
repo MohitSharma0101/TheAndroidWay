@@ -20,26 +20,6 @@ function ConnectButton() {
   );
 }
 
-export function Head() {
-  return (
-    <div>
-      <header className="text-gray-600 body-font">
-        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <a className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-            <Logo />
-            <span className="ml-3 text-xl">The Dev Way</span>
-          </a>
-          <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center text-white ">
-            <NavLink text="Home" link="\" />
-            <NavLink text="Services" link="\" />
-            <NavLink text="About" link="\" />
-          </nav>
-          <ConnectButton />
-        </div>
-      </header>
-    </div>
-  );
-}
 
 function Title(){
   return(

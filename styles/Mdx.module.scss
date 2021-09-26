@@ -155,7 +155,7 @@ $tag-color: #101010;
   p {
     font-size: 1.4rem;
     line-height: 2.5rem;
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 1rem 0;
 
     @include mobile() {
       font-size: 1rem;
@@ -164,8 +164,19 @@ $tag-color: #101010;
     }
   }
 
+  h3{
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.3333333;
+
+
+    @include mobile() {
+      font-size: 1.2rem;
+    }
+  }
+
   h2 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     margin: 2.5rem 0 1rem 0;
     font-weight: bold;
     line-height: 1.3333333;
@@ -184,6 +195,10 @@ $tag-color: #101010;
     @include mobile() {
       font-size: 2.9rem;
     }
+  }
+
+  hr{
+    border-color:  #555555;
   }
 
   ul {
@@ -222,7 +237,7 @@ $tag-color: #101010;
     padding: 1rem;
     overflow: auto;
     font-size: 1rem;
-    margin: 2rem 1rem;
+    margin: 1.5rem 1rem 1rem 1rem;
 
 
     code {
