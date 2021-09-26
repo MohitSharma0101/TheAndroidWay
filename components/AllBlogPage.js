@@ -52,6 +52,8 @@ function AllBlogs({ blogs }){
                 title={item.title}
                 content={item.content}
                 id={item.id}
+                tags = {item.tags}
+                date = {item.date}
               />
             ))}
     </div>

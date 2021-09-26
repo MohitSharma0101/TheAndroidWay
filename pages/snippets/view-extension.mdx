@@ -16,14 +16,14 @@ export const index = [
 
 Change the visibilty of the `View` to `View.GONE`.
 
-### Usage:
+### Usage🎯
 Call it on any `View`
 
 ```javascript
 myView.gone()
 ```
 
-### Source:
+### Code💻
 
 ```javascript
 fun View.gone() {
@@ -37,13 +37,13 @@ fun View.gone() {
 
 Change the visibilty of the `View` to `View.VISIBLE`.
 
-### Usage:
+### Usage🎯
 Call it on any `View`
 
 ```javascript
 myView.visible()
 ```
-### Source:
+### Code💻
 
 ```javascript
 fun View.visible() {
@@ -57,17 +57,17 @@ fun View.visible() {
 
 Set Width and height of a View Programmatically.
 
-### Usage
+### Usage🎯
 Call it on any `View`
 ```javascript
 myView.resize(50 , 100)
 ```
 
-### Code 
+### Code💻
 
 ```javascript
 fun View.resize(width: Int, height: Int) {
-    val lp = layoutParams
+    val lp = this.layoutParams
     lp?.let {
         lp.width = width
         lp.height = height

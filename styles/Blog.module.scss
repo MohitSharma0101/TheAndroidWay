@@ -81,6 +81,13 @@ $secondary-blue: #0070f3;
     color: white;
   }
 
+  .allTags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+  }
+
   .blogTag {
     color: white;
     background-color: $tag-color;

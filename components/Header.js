@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowIcon } from "../components/BlogCard";
 import Logo from "../public/logo";
 import styles from "../styles/Home.module.css";
+import BMCwidget from "./BMCwidget";
+import Head from "next/head";
 
 function NavLink({ text, link }) {
   return (
@@ -34,7 +36,11 @@ function Title(){
 
 export default function Header() {
   return (
-    <div className={styles.header}>
+    <>
+    <Head>
+       <BMCwidget/>
+      </Head>
+      <div className={styles.header}>
      <Title />
       <nav className={styles.nav}>
         <NavLink text="Home" link="\" />
@@ -42,5 +48,6 @@ export default function Header() {
         <NavLink text="About" link="\" />
       </nav>
     </div>
+    </>
   );
 }

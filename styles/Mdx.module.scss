@@ -110,6 +110,11 @@ $tag-color: #101010;
     }
   }
 
+  .allTags{
+    display: flex;
+    gap:1rem;
+  }
+
   .blogTag {
     color: white;
     width: fit-content;

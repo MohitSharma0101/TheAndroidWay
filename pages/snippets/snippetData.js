@@ -1,5 +1,5 @@
 
-const tags = {
+export const tags = {
    viewExtension : "View Extension"
 }
 

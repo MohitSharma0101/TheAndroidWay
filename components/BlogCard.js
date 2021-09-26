@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from 'next/image'
 import styles from "../styles/Blog.module.scss";
+import {blogImgLoader} from './util'
 
 export function ArrowIcon() {
   return (
@@ -21,27 +22,26 @@ export function ArrowIcon() {
   );
 }
 
-const myLoader = ({ src , width }) => {
-  const ip = '192.168.43.156'
-  const localhost = 'localhost'
-  return `http://${localhost}:3000/blog-cover/${src}.png?w=${width}`;
-}
 
-export default function BlogCard({ title, id , content}) {
+export default function BlogCard({ title, id , content , tags ,date}) {
   return (
     <Link href= {`/blog/${id}`} passHref>
     <div className={styles.blogCard}>
       <Image
       className={styles.blogCover}
-          loader={myLoader}
+          loader={blogImgLoader}
           src={title}
           alt="blog-cover"
           width={720}
           height={400}
         />
-        <h2 className={styles.blogTag}>Compose UI</h2>
+        <div className={styles.allTags}>
+        {tags.map((item) => (
+                <h2 key={item} className={styles.blogTag}>{item}</h2>
+            ))}
+        </div>
         <h1>{title}</h1>
-        <h3>Sep 8, 2021 * 7 min read</h3>
+        <h3>{date}</h3>
         <p>{content}</p>
     </div>
     </Link>

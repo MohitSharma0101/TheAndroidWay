@@ -1,68 +1,82 @@
 import styles from "../styles/Snippets.module.scss";
 import mdxStyle from "../styles/Mdx.module.scss";
 import Header from "./Header";
-import {useEffect}  from "react";
-import Prism from 'prismjs';
-import Image from 'next/image';
+import { useHighlightSyntax } from "./util";
+import { inUrlFormat } from "./util";
+import Image from "next/image";
 import Link from "next/link";
 import getAllSnippets from "../pages/snippets/snippetData";
-
-
+import Head from 'next/head'
 
 export default function Snippets({ meta, children }) {
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      Prism.highlightAll();
-    }
-  }, []);
-  
+  useHighlightSyntax();
 
   return (
     <div>
+      <Head>
+        <title>{meta.title}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header />
-      <div className={styles.backLink}>
-      <Image src="/icons/backArrow.svg" width="30" height="30" alt="Snippets" />
-      <Link href="/snippets" passHref>
-      <p>Back to All Snippets</p>
-      </Link>
-      </div>
-      <div className={styles.title}>
-        <h1 id={meta.title} >{meta.title}</h1>
-        <p>in kotlin.</p>
-      </div>
+      <BackLink />
+      <Title title={meta.title} />
       <div className={styles.content}>
-        <div className={`${styles.contentMdx} ${mdxStyle.mdx}`}>
-          {children}
-        </div>
-        <div className={styles.index}>
-        <h1>Index📜</h1>
-        {
-          getIndex(meta.title).map((item) => (
-            <IndexLink key={item.title} title={item.title} />
-           ))
-          }
-      </div>
+        <div className={`${styles.contentMdx} ${mdxStyle.mdx}`}>{children}</div>
+        <Index title={meta.title} />
       </div>
     </div>
   );
 }
 
-function IndexLink({title}){
+function Index({ title }) {
   return (
-    <Link href={`#${title.toLowerCase().replace(/ /g, "-")}`} passHref>
-      <a>
-      <div className={styles.bulletCircle}/>
-      <p>{title}</p>
-      </a>
-    </Link>
-  )
+    <div className={styles.index}>
+      <h1>Index📜</h1>
+      {getIndex(title).map((item) => (
+        <IndexLink key={item.title} title={item.title} />
+      ))}
+    </div>
+  );
 }
 
-function getIndex(title){
+function IndexLink({ title }) {
+  return (
+    <Link href={`#${inUrlFormat(title)}`} passHref>
+      <a>
+        <div className={styles.bulletCircle} />
+        <p>{title}</p>
+      </a>
+    </Link>
+  );
+}
+
+function getIndex(title) {
   return getAllSnippets().filter((snippet) => {
-    return (
-        snippet.tag.includes(title) && snippet.code != ""
-    );
-  })
+    return snippet.tag.includes(title) && snippet.code != "";
+  });
+}
+
+function Title({ title }) {
+  return (
+    <div className={styles.title}>
+      <h1 id={title}>{title}</h1>
+      <p>in kotlin.</p>
+    </div>
+  );
+}
+
+function BackLink() {
+  return (
+    <Link href="/snippets" passHref>
+      <div className={styles.backLink}>
+        <Image
+          src="/icons/backArrow.svg"
+          width="30"
+          height="30"
+          alt="Snippets"
+        />
+        <p>Back to All Snippets</p>
+      </div>
+    </Link>
+  );
 }

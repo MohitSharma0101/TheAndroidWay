@@ -2,6 +2,7 @@ import styles from "../styles/Snippets.module.scss";
 import Link from "next/link";
 import { useEffect } from "react";
 import Prism from "prismjs";
+import {inUrlFormat} from "./util";
 
 export default function SnippetCard({ code, title, desc, tag }) {
   useEffect(() => {
@@ -12,7 +13,7 @@ export default function SnippetCard({ code, title, desc, tag }) {
 
   return (
     <Link
-      href={`/snippets/${tag.toLowerCase().replace(/ /g, "-")}#${title.toLowerCase().replace(/ /g, "-")}`}
+      href={`/snippets/${inUrlFormat(tag)}#${inUrlFormat(title) }`}
       passHref
     >
       <div
