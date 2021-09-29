@@ -16,14 +16,15 @@ export default function SnippetsPage() {
     if (keyword.trim() !== "") {
       const results = snippets.filter((snippet) => {
         return (
-            snippet.title.toLowerCase().includes(keyword.toLowerCase()) ||
-            snippet.desc.toLowerCase().includes(keyword.toLowerCase())  ||
-            snippet.code.toLowerCase().includes(keyword.toLowerCase())  
+          snippet.title.toLowerCase().includes(keyword.toLowerCase()) ||
+          snippet.desc.toLowerCase().includes(keyword.toLowerCase()) ||
+          snippet.code.toLowerCase().includes(keyword.toLowerCase())  ||
+          snippet.tag.toLowerCase().includes(keyword.toLowerCase())  
         );
       });
       setFoundSnippets(results);
     } else {
-        setFoundSnippets(snippets);
+      setFoundSnippets(snippets);
       // If the text field is empty, show all users
     }
 
@@ -35,18 +36,17 @@ export default function SnippetsPage() {
       <Header />
       <PageTitle title="Snippets." color="#30DC80" icon="snippet" />
       <div className={styles.snippetSection}>
-        <SearchBar filter={filter} query={query}  />
+        <SearchBar filter={filter} query={query} />
         <div className={styles.snippetConatiner}>
           {foundSnippets.map((item) => (
-                <SnippetCard
-                  key={item.title}
-                  code={item.code}
-                  title={item.title}
-                  desc={item.desc}
-                  tag={item.tag}
-                />
-              )
-          )}
+            <SnippetCard
+              key={item.title}
+              code={item.code}
+              title={item.title}
+              desc={item.desc}
+              tag={item.tag}
+            />
+          ))}
         </div>
       </div>
     </div>

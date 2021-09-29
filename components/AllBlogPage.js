@@ -18,7 +18,8 @@ export default function BlogsPage() {
       const results = blogs.filter((blog) => {
         return (
           blog.title.toLowerCase().includes(keyword.toLowerCase()) ||
-          blog.content.toLowerCase().includes(keyword.toLowerCase())
+          blog.content.toLowerCase().includes(keyword.toLowerCase())  ||
+          blog.tags.find((tag)=> tag.toLowerCase().includes(keyword.toLowerCase())) 
         );
       });
       setFoundBlogs(results);

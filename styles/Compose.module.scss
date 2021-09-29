@@ -1,0 +1,111 @@
+@import "mixins";
+
+$secondary-dark: #2e2e2e;
+$on-secondary-dark: #414141;
+$primary-blue: #29b6f6;
+$tag-color: #121212;
+$secondary-blue: #0070f3;
+
+.composeSection {
+  width: 100%;
+  padding-bottom: 5rem;
+  background-color: $secondary-dark;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem 0;
+}
+
+.composeContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+// Compose Card
+
+.composeCard {
+  width: 22rem;
+  padding-bottom: 1rem;
+  border-radius: 1.5rem;
+  background-color: $on-secondary-dark;
+  transition: transform 0.2s;
+  flex-grow: 1;
+  margin: 2.5rem;
+  cursor: pointer;
+  max-width: 26rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @include tablet() {
+    max-width: 30rem;
+  }
+
+  @include mobile() {
+    width: fit-content;
+    margin: 1rem 0;
+    border-radius: 1rem;
+  }
+
+  .cardCover {
+    width: 100%;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+
+    @include mobile() {
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+  }
+
+  
+  h1 {
+    color: $primary-blue;
+    margin: 1rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.4rem;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    font-weight: 500;
+  }
+
+  h3 {
+    margin: 0.4rem 1rem;
+    color: white;
+    opacity: 85%;
+  }
+
+  p {
+    margin: 0.4rem 1rem;
+    color: white;
+  }
+
+  .allTags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .composeTag {
+    color: white;
+    background-color: $tag-color;
+    width: fit-content;
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.4rem;
+    text-align: center;
+    margin-left: 1rem;
+    margin-top: 0.4rem;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+  }
+}

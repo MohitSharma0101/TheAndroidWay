@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
-import Image from 'next/image'
+import Image from "next/image";
 import styles from "../styles/Blog.module.scss";
-import {blogImgLoader} from './util'
+import { blogImgLoader } from "./util";
 
 export function ArrowIcon() {
   return (
@@ -22,13 +22,12 @@ export function ArrowIcon() {
   );
 }
 
-
-export default function BlogCard({ title, id , content , tags ,date}) {
+export default function BlogCard({ title, id, content, tags, date }) {
   return (
-    <Link href= {`/blog/${id}`} passHref>
-    <div className={styles.blogCard}>
-      <Image
-      className={styles.blogCover}
+    <Link href={`/blog/${id}`} passHref>
+      <div className={styles.blogCard}>
+        <Image
+          className={styles.blogCover}
           loader={blogImgLoader}
           src={title}
           alt="blog-cover"
@@ -36,15 +35,16 @@ export default function BlogCard({ title, id , content , tags ,date}) {
           height={400}
         />
         <div className={styles.allTags}>
-        {tags.map((item) => (
-                <h2 key={item} className={styles.blogTag}>{item}</h2>
-            ))}
+          {tags.map((item) => (
+            <h2 key={item} className={styles.blogTag}>
+              {item}
+            </h2>
+          ))}
         </div>
         <h1>{title}</h1>
         <h3>{date}</h3>
         <p>{content}</p>
-    </div>
+      </div>
     </Link>
-  )
+  );
 }
-

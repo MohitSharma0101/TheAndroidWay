@@ -30,7 +30,7 @@ const categories = [
     svg: (
       <Image src="/icons/compose.svg" width="30" height="30" alt="Compose UI" />
     ),
-    link: "/blog",
+    link: "/compose",
   },
   {
     title: "Snippets",

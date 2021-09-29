@@ -129,7 +129,7 @@ $secondary-blue: #0070f3;
 
   h1 {
     color: $secondary-blue;
-    font-size: 4em;
+    font-size: 4rem;
     margin: 1.5rem;
 
     @include mobile() {
