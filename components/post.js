@@ -72,8 +72,7 @@ function Cover({ title }) {
     <div className={styles.coverContainer}>
       <Image
         className={styles.blogCover}
-        loader={blogImgLoader}
-        src={title}
+        src={`/blog-cover/${title}.png`}
         alt="blog-cover"
         width={720}
         height={400}
@@ -81,5 +80,3 @@ function Cover({ title }) {
     </div>
   );
 }
-
-

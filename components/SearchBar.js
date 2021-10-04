@@ -1,4 +1,4 @@
-import styles from "../styles/Blog.module.scss";
+import styles from "../styles/Component.module.scss";
 import Image from "next/image";
 
 
@@ -14,7 +14,7 @@ export default function SearchBar({query,filter}){
             placeholder="Search..."
           />
       <div className={styles.circle}>
-      <Image src="/icons/search.svg" width="30" height="30" alt="Snippets" />
+      <Image src="/icons/search.svg" width="24" height="24" alt="Snippets" />
       </div>
     </div>
   )

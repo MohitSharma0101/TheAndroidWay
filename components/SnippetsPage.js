@@ -11,21 +11,21 @@ export default function SnippetsPage() {
   const [query, setQuery] = useState("");
   const [foundSnippets, setFoundSnippets] = useState(snippets);
   const filter = (e) => {
-    const keyword = e.target.value;
+    const keyword = e.target.value.toLowerCase();
 
     if (keyword.trim() !== "") {
       const results = snippets.filter((snippet) => {
         return (
-          snippet.title.toLowerCase().includes(keyword.toLowerCase()) ||
-          snippet.desc.toLowerCase().includes(keyword.toLowerCase()) ||
-          snippet.code.toLowerCase().includes(keyword.toLowerCase())  ||
-          snippet.tag.toLowerCase().includes(keyword.toLowerCase())  
+          snippet.title.toLowerCase().includes(keyword) ||
+          snippet.desc.toLowerCase().includes(keyword) ||
+          snippet.code.toLowerCase().includes(keyword) ||
+          snippet.tag.toLowerCase().includes(keyword)
         );
       });
       setFoundSnippets(results);
     } else {
       setFoundSnippets(snippets);
-      // If the text field is empty, show all users
+      // If the text field is empty, show all
     }
 
     setQuery(keyword);
@@ -39,13 +39,7 @@ export default function SnippetsPage() {
         <SearchBar filter={filter} query={query} />
         <div className={styles.snippetConatiner}>
           {foundSnippets.map((item) => (
-            <SnippetCard
-              key={item.title}
-              code={item.code}
-              title={item.title}
-              desc={item.desc}
-              tag={item.tag}
-            />
+            <SnippetCard key={item.title} {...item} />
           ))}
         </div>
       </div>

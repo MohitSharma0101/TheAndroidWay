@@ -30,9 +30,12 @@ $secondary-blue: #0070f3;
 // Compose Card
 
 .composeCard {
-  width: 22rem;
+  
+$border-radius:1rem;
+
+  width: 20rem;
   padding-bottom: 1rem;
-  border-radius: 1.5rem;
+  border-radius: $border-radius;
   background-color: $on-secondary-dark;
   transition: transform 0.2s;
   flex-grow: 1;
@@ -52,14 +55,14 @@ $secondary-blue: #0070f3;
 
   @include mobile() {
     width: fit-content;
-    margin: 1rem 0;
+    margin: 1rem;
     border-radius: 1rem;
   }
 
   .cardCover {
     width: 100%;
-    border-top-left-radius: 1.5rem;
-    border-top-right-radius: 1.5rem;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
 
     @include mobile() {
       border-top-left-radius: 1rem;
@@ -73,7 +76,7 @@ $secondary-blue: #0070f3;
     margin: 1rem;
     margin-bottom: 0.2rem;
     margin-top: 0.4rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1.1;
     font-weight: 500;
   }
@@ -107,5 +110,38 @@ $secondary-blue: #0070f3;
     margin-top: 0.4rem;
     letter-spacing: 0.1em;
     font-size: 0.8rem;
+  }
+}
+
+
+// Compose page
+
+.container {
+  width: 85%;
+  padding-left:4rem;
+
+  @include mobile() {
+    width:100%;
+    padding: 0 1rem;
+  }
+}
+
+.meta{
+  margin: 4rem;
+  color: white;
+  h1{
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin: 1rem 0;
+
+    &::after{
+      content: "✨"
+    }
+  }
+
+  h2{
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin: 1rem 0;
   }
 }

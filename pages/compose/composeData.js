@@ -1,3 +1,8 @@
+
+export function getComposeUi(title){
+  return data.find((item) =>  item.title = title )
+}
+
 const tags = {
   interactive: "Interactive",
   button: "Button",

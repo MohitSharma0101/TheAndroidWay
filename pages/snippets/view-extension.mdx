@@ -1,5 +1,6 @@
 import Snippets from '../../components/Snippets'
 import Anchor from '../../components/Anchor'
+import Code from '../../components/Code'
 
 export const meta = {
   title: 'View Extension',
@@ -19,17 +20,15 @@ Change the visibilty of the `View` to `View.GONE`.
 ### Usage🎯
 Call it on any `View`
 
-```javascript
-myView.gone()
-```
+<Code>{`myView.gone()
+`}</Code>
 
 ### Code💻
 
-```javascript
-fun View.gone() {
+<Code>{`fun View.gone() {
     this.visibility = View.GONE
 }
-```
+`}</Code>
 
 ---
 
@@ -40,16 +39,15 @@ Change the visibilty of the `View` to `View.VISIBLE`.
 ### Usage🎯
 Call it on any `View`
 
-```javascript
-myView.visible()
-```
+<Code>{`myView.visible()
+`}</Code>
+
 ### Code💻
 
-```javascript
-fun View.visible() {
+<Code>{`fun View.visible() {
     this.visibility = View.VISIBLE
 }
-```
+`}</Code>
 
 ---
 
@@ -59,13 +57,13 @@ Set Width and height of a View Programmatically.
 
 ### Usage🎯
 Call it on any `View`
-```javascript
+<Code>{`
 myView.resize(50 , 100)
-```
+`}</Code>
 
 ### Code💻
 
-```javascript
+<Code>{`
 fun View.resize(width: Int, height: Int) {
     val lp = this.layoutParams
     lp?.let {
@@ -74,7 +72,7 @@ fun View.resize(width: Int, height: Int) {
         layoutParams = lp
     }
 }
-```
+`}</Code>
 
 
 

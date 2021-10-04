@@ -28,8 +28,7 @@ export default function BlogCard({ title, id, content, tags, date }) {
       <div className={styles.blogCard}>
         <Image
           className={styles.blogCover}
-          loader={blogImgLoader}
-          src={title}
+          src={`/blog-cover/${title}.png`}
           alt="blog-cover"
           width={720}
           height={400}

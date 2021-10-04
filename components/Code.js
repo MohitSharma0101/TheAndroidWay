@@ -1,20 +1,42 @@
-import styles from "../styles/Mdx.module.scss";
-import React, { useEffect } from "react";
-import Prism from 'prismjs';
+import styles from "../styles/Component.module.scss";
+import { useHighlightSyntax } from "./util";
+import { useState } from "react";
+import "prismjs/components/prism-kotlin";
+
+
 
 export default function Code({ children }) {
   const style = {
     backgroundColor: "#2E2E2E",
     borderRadius: "0.5rem",
   };
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      Prism.highlightAll();
-    }
-  }, []);
+  const [isCopy, setisCopy] = useState("Copy 📋");
+  const [btnColor, setbtnColor] = useState("#ffffff");
+
+
+
+  function copyToClipboard() {
+    setTimeout(() => {
+      setisCopy("Copy 📋");
+      setbtnColor("#ffffff");
+    }, 2000);
+    navigator.clipboard.writeText(children);
+    setisCopy("Copied! 📋");
+    setbtnColor("#30DC80");
+  }
+
+  useHighlightSyntax();
   return (
-    <pre className="language-javascript">
-      <code>{children}</code>
-    </pre>
+    <div className={styles.codeBlock}>
+      <div className={styles.action}>
+        <p>Kotlin</p>
+        <button onClick={copyToClipboard} style={{ color: btnColor }}>
+          {isCopy}
+        </button>
+      </div>
+      <pre className="language-kt">
+        <code>{children.trim()}</code>
+      </pre>
+    </div>
   );
 }

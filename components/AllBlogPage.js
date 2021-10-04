@@ -1,7 +1,7 @@
 
 import BlogCard  from "./BlogCard";
 import getAllBlogs from "../pages/blog/data";
-import React, { useState } from "react";
+import  { useState } from "react";
 import styles from "../styles/Blog.module.scss";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
@@ -34,7 +34,7 @@ export default function BlogsPage() {
     <div>
       <Header />
       <div className={styles.blogContainer}>
-        <PageTitle title = "Dev Blog." color="#0070f3"  icon="blog"/>
+        <PageTitle title = "Blog." color="#0070f3"  icon="blog"/>
         <div className={styles.blogBlackBox}>
         <SearchBar filter={filter} query={query} />
         <AllBlogs blogs={foundBlogs} />

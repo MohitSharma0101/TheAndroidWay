@@ -6,7 +6,7 @@ import { inUrlFormat } from "./util";
 import Image from "next/image";
 import Link from "next/link";
 import getAllSnippets from "../pages/snippets/snippetData";
-import Head from 'next/head'
+import Head from "next/head";
 
 export default function Snippets({ meta, children }) {
   useHighlightSyntax();
@@ -18,11 +18,13 @@ export default function Snippets({ meta, children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <BackLink />
-      <Title title={meta.title} />
+      <div className={styles.meta}>
+        <BackLink />
+        <Title title={meta.title} />
+      </div>
       <div className={styles.content}>
-        <div className={`${styles.contentMdx} ${mdxStyle.mdx}`}>{children}</div>
         <Index title={meta.title} />
+        <div className={`${styles.contentMdx} ${mdxStyle.mdx}`}>{children}</div>
       </div>
     </div>
   );

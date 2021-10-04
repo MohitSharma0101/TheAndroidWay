@@ -4,6 +4,7 @@ import styles from "../../styles/Compose.module.scss";
 import SearchBar from "../SearchBar";
 import ComposeCard from "./ComposeCard";
 import getAllComposeUI from "../../pages/compose/composeData";
+
 import { useState } from "react";
 
 export default function ComposePage() {

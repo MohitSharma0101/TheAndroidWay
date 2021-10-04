@@ -17,8 +17,7 @@ export default function ComposeCard({ title, desc, tags, date, type }) {
       <div className={styles.composeCard}>
         <Image
           className={styles.cardCover}
-          loader={imgLoader}
-          src={`${title}.${type}`}
+          src={`/compose/${title}.${type}`}
           alt="compose-ui-preview"
           width={720}
           height={400}
