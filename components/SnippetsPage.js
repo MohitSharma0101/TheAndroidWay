@@ -1,4 +1,3 @@
-import Header from "./Header";
 import PageTitle from "./PageTitle";
 import styles from "../styles/Snippets.module.scss";
 import SearchBar from "./SearchBar";
@@ -32,8 +31,7 @@ export default function SnippetsPage() {
   };
 
   return (
-    <div>
-      <Header />
+    <>
       <PageTitle title="Snippets." color="#30DC80" icon="snippet" />
       <div className={styles.snippetSection}>
         <SearchBar filter={filter} query={query} />
@@ -43,6 +41,6 @@ export default function SnippetsPage() {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }

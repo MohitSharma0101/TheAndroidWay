@@ -3,12 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { inUrlFormat } from "../util";
 
-export const imgLoader = ({ src, width }) => {
-  const homeip = "192.168.43.156";
-  const ip = "192.168.29.156";
-  const localhost = "localhost";
-  return `http://${localhost}:3000/compose/${src}?w=${width}`;
-};
+
 
 export default function ComposeCard({ title, desc, tags, date, type }) {
   console.log(title);

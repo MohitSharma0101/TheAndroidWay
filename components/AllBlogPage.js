@@ -3,7 +3,6 @@ import BlogCard  from "./BlogCard";
 import getAllBlogs from "../pages/blog/data";
 import  { useState } from "react";
 import styles from "../styles/Blog.module.scss";
-import Header from "./Header";
 import SearchBar from "./SearchBar";
 import PageTitle from "./PageTitle";
 
@@ -31,8 +30,7 @@ export default function BlogsPage() {
     setQuery(keyword);
   };
   return (
-    <div>
-      <Header />
+    <>
       <div className={styles.blogContainer}>
         <PageTitle title = "Blog." color="#0070f3"  icon="blog"/>
         <div className={styles.blogBlackBox}>
@@ -40,7 +38,7 @@ export default function BlogsPage() {
         <AllBlogs blogs={foundBlogs} />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

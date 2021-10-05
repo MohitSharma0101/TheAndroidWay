@@ -233,51 +233,50 @@ $tag-color: #101010;
     background-color: $code-background-color;
     border-radius: 0.5rem;
     padding: 0.5rem;
-
-    
   }
 
-  pre {
-    width: 80%;
-    background-color: $code-background-color;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    overflow: auto;
-    font-size: 1rem;
-    margin: 1.5rem 1rem 1rem 1rem;
 
-    @include mobile() {
-      width: 100%;
-    }
+  // pre {
+  //   width: 80%;
+  //   background-color: $code-background-color;
+  //   border-radius: 0.5rem;
+  //   padding: 1rem;
+  //   overflow: auto;
+  //   font-size: 1rem;
+  //   margin: 1.5rem 1rem 1rem 1rem;
 
-    &::-webkit-scrollbar {
-      height: 8px;
-    }
+  //   @include mobile() {
+  //     width: 100%;
+  //   }
+
+  //   &::-webkit-scrollbar {
+  //     height: 8px;
+  //   }
      
-    &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    }
+  //   &::-webkit-scrollbar-track {
+  //     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  //   }
      
-    &::-webkit-scrollbar-thumb {
-      background-color: darkgrey;
-      outline: 0.5px solid slategrey;
-      border-radius: 1rem;
-    }
+  //   &::-webkit-scrollbar-thumb {
+  //     background-color: darkgrey;
+  //     outline: 0.5px solid slategrey;
+  //     border-radius: 1rem;
+  //   }
 
 
-    code {
-      background-color: transparent;      
-      color: $font-color;
+  //   code {
+  //     background-color: transparent;      
+  //     color: $font-color;
 
       
-    }
+  //   }
 
-    @include mobile() {
-      width: 100%;
-      margin: 1rem 0;
-      padding: 1rem;
-    }
-  }
+  //   @include mobile() {
+  //     width: 100%;
+  //     margin: 1rem 0;
+  //     padding: 1rem;
+  //   }
+  // }
 
 
 

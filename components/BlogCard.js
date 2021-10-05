@@ -3,7 +3,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Blog.module.scss";
-import { blogImgLoader } from "./util";
 
 export function ArrowIcon() {
   return (

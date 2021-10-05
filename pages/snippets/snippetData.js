@@ -18,7 +18,7 @@ const snippets = [
     tag: tags.viewExtension,
   },
   {
-    code: "View.resize(width: Int, height: Int)",
+    code: "fun View.resize(width: Int, height: Int)",
     title: "Resize the View",
     desc: "Extension method to resize View with height & width.",
     tag: tags.viewExtension,

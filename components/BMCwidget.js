@@ -12,7 +12,7 @@ export default function BMCwidget() {
           data-message=""
           data-color="#5F7FFF"
           data-position="Right"
-          data-x_margin="26"
+          data-x_margin="22"
           data-y_margin="22"
         ></script>
     )

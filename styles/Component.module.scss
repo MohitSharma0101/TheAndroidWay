@@ -132,8 +132,7 @@ $secondary-blue: #0070f3;
 // Code Block
 
 .codeBlock {
-
-  $background : #2e2e2e;
+  $background: #2e2e2e;
 
   width: 80%;
   margin: 1rem;
@@ -143,12 +142,10 @@ $secondary-blue: #0070f3;
     padding: 1rem;
     margin: 0;
   }
-  
 
   .action {
     display: flex;
     justify-content: space-between;
-
 
     p {
       background-color: $background;
@@ -157,14 +154,13 @@ $secondary-blue: #0070f3;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       padding: 0.4rem 0.8rem;
-      margin:0;
+      margin: 0;
       font-size: 1rem;
       letter-spacing: 2px;
     }
 
     button {
-      right: 0;
-      
+      font-size: 1rem;
     }
   }
 
@@ -185,23 +181,30 @@ $secondary-blue: #0070f3;
     &::-webkit-scrollbar {
       height: 8px;
     }
-     
+
     &::-webkit-scrollbar-track {
       box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     }
-     
+
     &::-webkit-scrollbar-thumb {
       background-color: darkgrey;
       outline: 0.5px solid slategrey;
       border-radius: 1rem;
     }
 
-
     code {
-      background-color: transparent;      
+      background-color: transparent;
       color: white;
     }
-
-
   }
+}
+
+
+//Fotter 
+
+.fotter{
+  padding:1rem;
+ .signature{
+   color:white;
+ }
 }

@@ -1,19 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Mdx.module.scss";
-import Header from "../components/Header";
 import BlogCard from "./BlogCard";
 import { getTopThreePost } from "../pages/blog/data";
 import { getBlog } from "../pages/blog/data";
-import { blogImgLoader } from "./util";
-import { useHighlightSyntax } from "./util";
+import MDX from "./MDX";
 
 export default function Post({ children, meta }) {
   const { title, author } = meta;
   const blog = getBlog(title);
   const readNextBlogs = getTopThreePost("Compose UI", title);
 
-  useHighlightSyntax();
 
   return (
     <>
@@ -22,7 +19,6 @@ export default function Post({ children, meta }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Header />
         <div className={styles.postPage}>
           <Cover title={title} />
 
@@ -37,7 +33,7 @@ export default function Post({ children, meta }) {
               </div>
               <h1 className={styles.blogHeading}>{blog.title}</h1>
               <h3 className={styles.date}>{blog.date}</h3>
-              <div className={styles.mdx}>{children}</div>
+              <MDX>{children}</MDX>
             </div>
           </div>
           <ReadNextSection blogs={readNextBlogs} />
@@ -46,6 +42,7 @@ export default function Post({ children, meta }) {
     </>
   );
 }
+
 
 function ReadNextSection({ blogs }) {
   return (

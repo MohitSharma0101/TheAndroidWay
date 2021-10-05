@@ -38,7 +38,7 @@ Ohk So, First we need to draw the UI, and then we will add the sliding functiona
 
 Let's Draw it one by one:
 - Card
-```javascript
+<Code>{`
     Card(
             shape = RoundedCornerShape(8.dp),
             backgroundColor = Color.White,
@@ -49,9 +49,9 @@ Let's Draw it one by one:
         ) {
           // slider code
       }
-```
+`}</Code>
 - Canvas - To draw Lines and Emoji.
-```javascript
+<Code>{`
 Card(...){
        Canvas(
                 modifier = Modifier
@@ -64,7 +64,7 @@ Card(...){
                   // Drawing Scope
         }
 }
-```
+`}</Code>
 
 > 
 Here, fun T.coerceIn(
@@ -79,7 +79,7 @@ and while sliding we don't want our emoji to slide out of our canvas so we need 
 and in our case, it is from 0( starting point ) to canvas-width.
 
 - Line 
-```javascript
+<Code>{`
   Canvas(...){
                //Gray Line
                 drawLine(
@@ -90,7 +90,7 @@ and in our case, it is from 0( starting point ) to canvas-width.
                     cap = StrokeCap.Round  // make line end points round
                 )
    }
-```
+`}</Code>
 Now to understand all this Offset logic we need to understand the coordinate system Canvas works on.
 
 ![Canvas in Jetpack Compose .png](https://cdn.hashnode.com/res/hashnode/image/upload/v1631091452035/JWkQRvQlw.png)
@@ -100,11 +100,11 @@ So, Our line starts from ( 0 , canvasHeight / 2) and ends on (canvasWidth, canva
 We also need to draw one more line to show the progress of our emoji on Slide 
 in that, we will make the `X-coordinate` a variable (`offsetX`) which will change when emoji slides and update the UI.
 
-```javascript
+<Code>{`
 Canvas(...){
                //Gray Line
                 drawLine(...)
-
+ 
                //progress Line
                 drawLine(
                     start = Offset(x = 0f, y = canvasHeight / 2),
@@ -114,21 +114,21 @@ Canvas(...){
                     cap = StrokeCap.Round
                 )
 }
-```
+`}</Code>
 Here, `offsetX` is a mutable state variable that will change on sliding the emoji and recompose the composable.
 
 - Text(with Emoji Unicode)  
 
 Emojis are actually just strings. So, we need to draw the text with the special emoji Unicode string.
 but sadly compose canvas didn't provide a direct method to draw text we need to draw it with native canvas and that's how we do it -
-```javascript
+<Code>{`
 Canvas(...){
                //Gray Line
                 drawLine(...)
-
+ 
                //progress Line
                 drawLine(...)
-
+  
                //Emoji as Text
                 drawIntoCanvas { canvas ->
                     canvas.nativeCanvas.drawText(
@@ -141,7 +141,7 @@ Canvas(...){
                     )
                 }
 }
-```
+`}</Code>
 Now, you might b wondering How I am gonna get those Unicode emoji strings?
 Well, I got your back.
 
@@ -155,20 +155,20 @@ ok! but still, we need to draw that enlarge emoji too. we will do it while addin
 - Box - to wrap up all  
 
 Let's wrap up everything in a box.
-```javascript
+<Code>{`
 Box(modifier = modifier) {
         Card(...) {
             Canvas(...) {
                 val canvasWidth = size.width
                 val canvasHeight = size.height
                 offsetX = offsetX.coerceIn(0f, canvasWidth)
-         
+          
                 //Gray Line
                 drawLine(...)
-
+ 
                 //progress Line
                 drawLine(...)
-
+ 
                 //Emoji as Text
                 drawIntoCanvas { canvas ->
                     canvas.nativeCanvas.drawText(...)
@@ -176,7 +176,7 @@ Box(modifier = modifier) {
             }
         }
     }
-```
+`}</Code>
 
 and we are done with drawing. Let's start implementing sliding functionality.
 
@@ -185,17 +185,19 @@ and we are done with drawing. Let's start implementing sliding functionality.
 Now, First thing there are some variables that we have used before but I haven't said where to declare them because of all the state things we need to manage.
 So let's do it now.
 
-```javascript
+<Code>{`
 @Composable
 fun EmojiSlider(...){
     var isPressed by remember { mutableStateOf(false) }
     var offsetX by remember { mutableStateOf(10f) }
     var progress by remember { mutableStateOf(0f) }
-    
+      
     Box(...) {...}
 }
-```
-> `"remember { mutableStateOf(value) }"`  is used to create a mutable state and our composable will be subscribed to that state variable that means when the value changes, everything that uses this value in that composable will be redrawn with the new value.
+`}
+</Code>
+
+> `remember { mutableStateOf(value) }`  is used to create a mutable state and our composable will be subscribed to that state variable that means when the value changes, everything that uses this value in that composable will be redrawn with the new value.
 
 - `isPressed` - used to check if the Emoji in the slider is dragging or not.
 - `offsetX` - used to know the X coordinate of our emoji.
@@ -207,7 +209,7 @@ Now, Let's look at the On Slide State.
 
 first, let's make our slider draggable. In other to do that we need to make our card draggable not the emoji because the card has more area to detect the drag gestures. 
 
-```javascript
+<Code>{`
 Card( ...
             modifier = Modifier
                 .height(height)
@@ -222,15 +224,15 @@ Card( ...
                     onDragStarted = { isPressed = true }
                 )
         ) {
-```
+`}</Code>
 Here, `orientation` make sure to only detect the horizontal drags because we only need that.
 and as the `offsetX` or `isPressed` value changes, recomposition happens.
 
 On change of `isPressed`, we need to show or hide the enlarged Emoji.
-```javascript
+<Code>{`
 Box() {
         Card(...) {...}
-
+ 
         if (isPressed) {
             Text(text = emoji,
                 fontSize = progress.coerceIn(20f, 80f).sp,
@@ -241,7 +243,7 @@ Box() {
                     })
         }
     }
-```
+`}</Code>
 Now, Here we just showing a Text composable with emoji Unicode string.
 and to make It large/small with the slide we need to change the font size and I used `coerceIn` here because the value should be in the range of 20f to 80f(why? because I liked it this way. You can play around with these values) and I give our emoji a -200 y offset to move it little upward. 
 You can try with different values and find the right one for you.
@@ -249,7 +251,7 @@ You can try with different values and find the right one for you.
 and we are done building our emoji slider. 🎉  
 Let's put it all together.
 
-```javascript
+<Code>{`
 @Composable
 fun EmojiSlider(
     modifier: Modifier = Modifier,
@@ -291,7 +293,7 @@ fun EmojiSlider(
                 offsetX = offsetX.coerceIn(0f, canvasWidth)
                 progress = (offsetX / canvasWidth) * 100
                 onSlide(progress)
-
+ 
                 //Gray Line
                 drawLine(
                     start = Offset(x = 0f, y = canvasHeight / 2),
@@ -321,7 +323,7 @@ fun EmojiSlider(
                 }
             }
         }
-
+ 
         if (isPressed) {
             Text(text = emoji,
                 fontSize = progress.coerceIn(20f, 80f).sp,
@@ -333,13 +335,13 @@ fun EmojiSlider(
         }
     }
 }
-```
+`}</Code>
 
 I made this composable reusable by extracting all the values and used them as parameters.
 So, Even if you don't understand everything you can still use it in your project.
 Let me show you how...
 
-```javascript
+<Code>{`
   @Composable
     fun EmojiSliderDemo() {
         Box{
@@ -351,7 +353,7 @@ Let me show you how...
             }   
         }
     }
-```
+`}</Code>
 
 > Have any queries? or wanna stay updated with the latest android trends?
 Follow me on Instagram  [@coding.ms](https://www.instagram.com/coding.ms/) 

@@ -1,6 +1,6 @@
 import Compose from '../../components/compose/Compose'
 import Image from "next/image";
-import Code from '../../components/Code'
+
 
 
 export const meta = {
@@ -34,8 +34,8 @@ An intreactive UI component inspired by Instagram's Emoji Slider which let user 
 
 ## Usage🎯
 
-<Code>
-{`@Composable
+```
+@Composable
     fun EmojiSliderDemo() {
         Box{
             EmojiSlider(
@@ -45,14 +45,13 @@ An intreactive UI component inspired by Instagram's Emoji Slider which let user 
                 Log.d("onProgressChange:",progress.toString())
             }   
         }
-    }`}
-</Code>
+    }
+```
 
 ## Source code💻
 Copy and Paste this code into your Project and used it as mentioned above.
 
-<Code>
-{`
+```
 @Composable
 fun EmojiSlider(
     modifier: Modifier = Modifier,
@@ -136,8 +135,8 @@ fun EmojiSlider(
                     })
         }
     }
-}`}
-</Code>
+}
+```
 
 
 export default ({ children }) => <Compose usage={usage} meta ={meta}>{children}</Compose>

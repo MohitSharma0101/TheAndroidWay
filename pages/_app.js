@@ -1,15 +1,19 @@
-import '../styles/globals.css'
-import { useEffect } from "react";
-import Prism from 'prismjs';
+import "../styles/globals.css";
+import Header from "../components/Header";
+import { useHighlightSyntax } from "../components/util";
+import "prismjs/components/prism-kotlin";
+import Fotter from '../components/Fotter'
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      Prism.highlightAll();
-    }
-  }, []);
+  useHighlightSyntax()
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Header />
+      <Component {...pageProps} />
+      <Fotter />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;

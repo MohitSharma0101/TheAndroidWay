@@ -2,13 +2,11 @@ import React from "react"
 import styles from "../styles/Home.module.scss"
 import Link from "next/link"
 import Image from "next/image"
-import Header from "./Header"
 import { useState } from "react"
 
 export default function HomePage() {
   return (
     <div className={styles.page}>
-      <Header />
       <h1 className={styles.pageTitle}>Categories.</h1>
       <Categories />
     </div>

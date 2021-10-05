@@ -1,10 +1,8 @@
-import Header from "../Header";
 import PageTitle from "../PageTitle";
 import styles from "../../styles/Compose.module.scss";
 import SearchBar from "../SearchBar";
 import ComposeCard from "./ComposeCard";
 import getAllComposeUI from "../../pages/compose/composeData";
-
 import { useState } from "react";
 
 export default function ComposePage() {
@@ -32,8 +30,7 @@ export default function ComposePage() {
     };
     
   return (
-    <div>
-      <Header />
+    <>
       <PageTitle title="Compose UI's" color="#EF3A5D" icon="compose" />
       <div className={styles.composeSection}>
         <SearchBar filter={filter} query={query} />
@@ -44,6 +41,6 @@ export default function ComposePage() {
          
         </div>
       </div>
-    </div>
+    </>
   );
 }

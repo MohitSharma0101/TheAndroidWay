@@ -4,7 +4,6 @@ import { useState } from "react";
 import "prismjs/components/prism-kotlin";
 
 
-
 export default function Code({ children }) {
   const style = {
     backgroundColor: "#2E2E2E",
@@ -35,7 +34,7 @@ export default function Code({ children }) {
         </button>
       </div>
       <pre className="language-kt">
-        <code>{children.trim()}</code>
+        <code>{children}</code>
       </pre>
     </div>
   );

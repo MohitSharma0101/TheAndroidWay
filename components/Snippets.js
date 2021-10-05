@@ -1,15 +1,12 @@
 import styles from "../styles/Snippets.module.scss";
-import mdxStyle from "../styles/Mdx.module.scss";
-import Header from "./Header";
-import { useHighlightSyntax } from "./util";
 import { inUrlFormat } from "./util";
 import Image from "next/image";
 import Link from "next/link";
 import getAllSnippets from "../pages/snippets/snippetData";
 import Head from "next/head";
+import MDX from "./MDX";
 
 export default function Snippets({ meta, children }) {
-  useHighlightSyntax();
 
   return (
     <div>
@@ -17,14 +14,15 @@ export default function Snippets({ meta, children }) {
         <title>{meta.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <div className={styles.meta}>
         <BackLink />
         <Title title={meta.title} />
       </div>
       <div className={styles.content}>
         <Index title={meta.title} />
-        <div className={`${styles.contentMdx} ${mdxStyle.mdx}`}>{children}</div>
+        <div className={styles.contentMdx}>
+          <MDX>{children}</MDX>
+        </div>
       </div>
     </div>
   );
