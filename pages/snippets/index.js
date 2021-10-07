@@ -1,11 +1,5 @@
-import React from 'react'
-import SnippetPage from '../../components/SnippetsPage'
-
+import SnippetPage from '../../components/snippets/SnippetsPage'
 
 export default function home() {
-    return (
-        <div >
-            <SnippetPage/>
-        </div>
-    )
+    return <SnippetPage/>
 }

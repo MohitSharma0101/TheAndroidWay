@@ -1,7 +1,7 @@
-import styles from "../styles/Snippets.module.scss";
+import styles from "../../styles/Snippets.module.scss";
 import Link from "next/link";
-import { inUrlFormat } from "./util";
-import { useHighlightSyntax } from "./util";
+import { inUrlFormat } from "../util";
+import { useHighlightSyntax } from "../util";
 
 export default function SnippetCard({ code, title, desc, tag }) {
   useHighlightSyntax();

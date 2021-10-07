@@ -1,8 +1,8 @@
-import PageTitle from "./PageTitle";
-import styles from "../styles/Snippets.module.scss";
-import SearchBar from "./SearchBar";
-import SnippetCard from "./SnippetCard";
-import getAllSnippets from "../pages/snippets/snippetData";
+import PageTitle from "../PageTitle";
+import styles from "../../styles/Snippets.module.scss";
+import SearchBar from "../SearchBar";
+import SnippetCard from "../snippets/SnippetCard";
+import getAllSnippets from "../../pages/snippets/snippetData";
 import { useState } from "react";
 
 export default function SnippetsPage() {

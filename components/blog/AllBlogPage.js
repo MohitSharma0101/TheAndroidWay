@@ -1,10 +1,10 @@
 
-import BlogCard  from "./BlogCard";
-import getAllBlogs from "../pages/blog/data";
+import BlogCard  from "../blog/BlogCard";
+import getAllBlogs from "../../pages/blog/data";
 import  { useState } from "react";
-import styles from "../styles/Blog.module.scss";
-import SearchBar from "./SearchBar";
-import PageTitle from "./PageTitle";
+import styles from "../../styles/Blog.module.scss";
+import SearchBar from "../SearchBar";
+import PageTitle from "../PageTitle";
 
 export default function BlogsPage() {
   const blogs = getAllBlogs();

@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Mdx.module.scss";
-import BlogCard from "./BlogCard";
-import { getTopThreePost } from "../pages/blog/data";
-import { getBlog } from "../pages/blog/data";
-import MDX from "./MDX";
+import styles from "../../styles/Mdx.module.scss";
+import BlogCard from "../blog/BlogCard";
+import { getTopThreePost } from "../../pages/blog/data";
+import { getBlog } from "../../pages/blog/data";
+import MDX from "../MDX";
 
 export default function Post({ children, meta }) {
   const { title, author } = meta;

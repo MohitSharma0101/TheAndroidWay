@@ -1,10 +1,10 @@
-import styles from "../styles/Snippets.module.scss";
-import { inUrlFormat } from "./util";
+import styles from "../../styles/Snippets.module.scss";
+import { inUrlFormat } from "../util";
 import Image from "next/image";
 import Link from "next/link";
-import getAllSnippets from "../pages/snippets/snippetData";
+import getAllSnippets from "../../pages/snippets/snippetData";
 import Head from "next/head";
-import MDX from "./MDX";
+import MDX from "../MDX";
 
 export default function Snippets({ meta, children }) {
 
