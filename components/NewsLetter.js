@@ -1,27 +1,92 @@
-import React from "react";
+import styles from "../styles/Component.module.scss";
+import Image from "next/image";
+import { useState } from "react";
+import { state } from "./StateHandler";
+import StateHandler from "./StateHandler";
+import { isEmailValid } from "./util";
+
+function Form() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [uiState, setState] = useState(state.normal);
+
+  const subscribeUser = async (event) => {
+    setState(state.loading);
+    event.preventDefault();
+    setTimeout(() => {
+      setState(state.normal);
+    }, 60000);
+
+    if (isEmailValid(email)) {
+      const res = await fetch("/api/newsletter", {
+        body: JSON.stringify({ email: email, name: name }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      });
+
+      const { error, message } = await res.json();
+      if (error) {
+        setState(error);
+      } else {
+        setState(state.sucess);
+      }
+    }else{
+      setState("Email is not Valid!")
+    }
+  };
+
+  return (
+    <>
+      <form onSubmit={subscribeUser}>
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          reqstatered
+        />
+        <label htmlFor="email">Email:</label>
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          reqstatered
+        />
+        <Subscribe uiState={uiState} />
+      </form>
+      <div className={styles.states}>
+        <StateHandler uiState={uiState} />
+      </div>
+    </>
+  );
+}
+
+function Subscribe({ uiState }) {
+  if (uiState != state.loading) return <button type="submit">Subscribe</button>;
+  else return null;
+}
 
 export default function NewsLetter() {
   return (
-    <section className="text-gray-600 body-font">
-    <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
-      <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-        <h1 className="title-font font-medium text-3xl text-gray-900">Get the best of both worlds</h1>
-        <p className="leading-relaxed mt-4">Subscribe to our newsLetter</p>
+    <div className={styles.newsLetter}>
+      <div className={styles.cover}>
+        <Image
+          src="/newsletter-full.png"
+          width="400"
+          height="400"
+          alt="newsletter"
+        />
       </div>
-      <div className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-        <h2 className="text-gray-900 text-lg font-medium title-font mb-5">NewsLetter</h2>
-        <div className="relative mb-4">
-          <label htmlFor="full-name" className="leading-7 text-sm text-gray-600">Full Name</label>
-          <input type="text" id="full-name" name="full-name" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-        </div>
-        <div className="relative mb-4">
-          <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
-          <input type="email" id="email" name="email" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-        </div>
-        <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Subscribe</button>
-        <p className="text-xs text-gray-500 mt-3">Let us code the Dev Way.</p>
+      <div className={styles.content}>
+        <h1>Get Weekly Newsletter</h1>
+        <h1>The Andoid Way...</h1>
+        <ul>
+          <li>Compose UI of the week.</li>
+          <li>Lots of Resources &amp; Updates.</li>
+          <li>Android News &amp; Jobs.</li>
+        </ul>
+        <Form />
       </div>
     </div>
-  </section>
-  )
+  );
 }
