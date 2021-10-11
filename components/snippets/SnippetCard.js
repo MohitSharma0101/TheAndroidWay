@@ -5,6 +5,10 @@ import { useHighlightSyntax } from "../util";
 
 export default function SnippetCard({ code, title, desc, tag }) {
   useHighlightSyntax();
+  const listStyle = {
+    maxWidth: "300px",
+    padding: "2.8rem"
+  };
   return (
     <Link href={`/snippets/${inUrlFormat(tag)}#${inUrlFormat(title)}`} passHref>
       <div
@@ -13,7 +17,7 @@ export default function SnippetCard({ code, title, desc, tag }) {
             ? styles.snippetCard
             : `${styles.snippetCard} ${styles.listCard}`
         }
-        style={code == "" ? { padding: "2.8rem" } : {}}
+        style={code == "" ? listStyle : {}}
       >
         <h4 className={styles.tag}>{tag}</h4>
         <h1>{title}</h1>

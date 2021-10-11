@@ -6,15 +6,46 @@ $primary-blue: #29b6f6;
 $tag-color: #121212;
 $secondary-blue: #0070f3;
 
+.headSection {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1f2528;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: rgba(8, 8, 8, 0.3) 0px 15px 15px;
+
+  @include mobile() {
+    flex-direction: column;
+    gap: 8px;
+    padding: 1rem;
+  }
+
+  .tutorial {
+    height: fit-content;
+    background-color: #15191b;
+    border-radius: 8px;
+    padding: 1rem;
+    color: white;
+    align-self: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    transition: transform 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.09);
+    }
+  }
+}
+
 .composeSection {
   width: 100%;
-  padding-bottom: 5rem;
-  background-color: $secondary-dark;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 4rem 0;
 }
 
 .composeContainer {
@@ -25,28 +56,24 @@ $secondary-blue: #0070f3;
   align-items: center;
 }
 
-
-
 // Compose Card
 
 .composeCard {
-  
-$border-radius:1rem;
+  $border-radius: 1rem;
 
   width: 20rem;
   padding-bottom: 1rem;
   border-radius: $border-radius;
-  background-color: $on-secondary-dark;
+  background-color: #1f2528;
   transition: transform 0.2s;
   flex-grow: 1;
   margin: 2.5rem;
   cursor: pointer;
   max-width: 26rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.09);
   }
 
   @include tablet() {
@@ -70,7 +97,6 @@ $border-radius:1rem;
     }
   }
 
-  
   h1 {
     color: $primary-blue;
     margin: 1rem;
@@ -92,7 +118,7 @@ $border-radius:1rem;
     color: white;
   }
 
-  .allTags{
+  .allTags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -113,35 +139,103 @@ $border-radius:1rem;
   }
 }
 
-
 // Compose page
 
+.section {
+  display: flex;
+  justify-content: space-between;
+}
+
 .container {
-  width: 85%;
-  padding-left:4rem;
+  width: 70%;
+  padding-left: 4rem;
 
   @include mobile() {
-    width:100%;
+    width: 100%;
     padding: 0 1rem;
   }
 }
 
-.meta{
+.meta {
   margin: 4rem;
   color: white;
-  h1{
+  h1 {
     font-size: 2.8rem;
     font-weight: bold;
     margin: 1rem 0;
 
-    &::after{
-      content: "✨"
+    &::after {
+      content: "✨";
     }
   }
 
-  h2{
+  h2 {
     font-size: 2.4rem;
     font-weight: bold;
     margin: 1rem 0;
+  }
+}
+
+.sidebar {
+  width: 25%;
+  min-width: 200px;
+  color: white;
+  height: fit-content;
+  margin: 1rem;
+  border: 1px solid #28b6fc;
+  border-radius: 1rem;
+  padding: 1rem;
+  position: sticky;
+  top: 7rem;
+  box-shadow: rgba(8, 8, 8, 0.3) 0px 15px 15px;
+
+  @include mobile() {
+    display: none;
+  }
+
+  input {
+    $border-color: #28b6fc;
+
+    outline: none;
+    border: 1px solid $border-color;
+    background-color: transparent;
+    caret-color: $border-color;
+    padding: 6px 4px;
+    width: 80%;
+    border-radius: 4px;
+    font-size: 1rem;
+
+    &:focus {
+      background-color: transparent;
+    }
+  }
+
+  h2 {
+    width: 80%;
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 16px;
+  }
+  .card {
+    transform: scale(0.8);
+    margin: inherit;
+  }
+  button {
+    margin: 16px auto;
+    margin-bottom: 0;
+    background-color: #e93fa1;
+    width: fit-content;
+    padding: 8px 14px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 4px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

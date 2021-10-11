@@ -1,12 +1,12 @@
 export function getTopThreePost(tag, notInclude) {
   return getAllBlogs().filter(
-    (category) => category.tags.includes(tag) && category.title != notInclude
+    (category) => category.tags.includes(tag) && category.id != notInclude
   );
 }
 
-export function getBlog(title){
+export function getBlog(id){
   return getAllBlogs().find(
-    (blog) => blog.title.includes(title)
+    (blog) => blog.id.includes(id)
   )
 }
 
@@ -38,10 +38,11 @@ export default function getAllBlogs() {
     },
     {
       title: "How to create a Pulse Loading animation in Jetpack Compose",
-      id: "How-to-create-a-pulse-loading-animation-in-jetpack-compose",
+      id: "how-to-create-a-pulse-loading-animation-in-jetpack-compose",
       tags: [tags.composeUi, tags.animation ],
       date: "26 Sept 2021",
       content: "Learn to use simple animations in jetpack compose",
     },
+    
   ];
 }

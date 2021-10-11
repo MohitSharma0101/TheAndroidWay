@@ -19,7 +19,12 @@ export default function Code({ children }) {
       setisCopy("Copy 📋");
       setbtnColor("#ffffff");
     }, 2000);
-    navigator.clipboard.writeText(children);
+    try{
+      navigator.clipboard.writeText(children);
+    }catch(err){
+      console.log(err)
+    }
+  
     setisCopy("Copied! 📋");
     setbtnColor("#30DC80");
   }

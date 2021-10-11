@@ -4,24 +4,12 @@ import Image from "next/image";
 
 
 export const meta = {
- title: 'Emoji Slider'
+    title: "Emoji Slider",
+ tutorialId: 'emoji-slider-in-jetpack-compose'
 }
 
-export const usage = `  @Composable
-    fun EmojiSliderDemo() {
-        Box{
-            EmojiSlider(
-                emoji = Emoji.loveFace, // from the repo I share earlier
-                modifier = Modifier.align(Alignment.Center),
-            ){ progress ->
-                Log.d("onProgressChange:",progress.toString())
-            }   
-        }
-    }
-`
 
-
-# Emoji Slider✨
+## About
 An intreactive UI component inspired by Instagram's Emoji Slider which let user slide an Emoji and express the emotion on a scale of 0 to 1.
 
 ## Preview🌈
@@ -139,5 +127,5 @@ fun EmojiSlider(
 ```
 
 
-export default ({ children }) => <Compose usage={usage} meta ={meta}>{children}</Compose>
+export default ({ children }) => <Compose meta ={meta}>{children}</Compose>
 

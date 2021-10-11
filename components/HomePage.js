@@ -6,10 +6,10 @@ import { useState } from "react"
 
 export default function HomePage() {
   return (
-    <div className={styles.page}>
+    <>
       <h1 className={styles.pageTitle}>Categories.</h1>
       <Categories />
-    </div>
+    </>
   )
 }
 
@@ -20,7 +20,6 @@ function Categories() {
         {categories.map((category) => (
           <CategoryCard key={category.title} {...category} />
         ))}
-        <h2>----- More Coming Soon -----</h2>
       </div>
     </div>
   )

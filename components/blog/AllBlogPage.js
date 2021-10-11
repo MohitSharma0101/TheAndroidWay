@@ -1,7 +1,6 @@
-
-import BlogCard  from "../blog/BlogCard";
+import BlogCard from "../blog/BlogCard";
 import getAllBlogs from "../../pages/blog/data";
-import  { useState } from "react";
+import { useState } from "react";
 import styles from "../../styles/Blog.module.scss";
 import SearchBar from "../SearchBar";
 import PageTitle from "../PageTitle";
@@ -17,8 +16,10 @@ export default function BlogsPage() {
       const results = blogs.filter((blog) => {
         return (
           blog.title.toLowerCase().includes(keyword.toLowerCase()) ||
-          blog.content.toLowerCase().includes(keyword.toLowerCase())  ||
-          blog.tags.find((tag)=> tag.toLowerCase().includes(keyword.toLowerCase())) 
+          blog.content.toLowerCase().includes(keyword.toLowerCase()) ||
+          blog.tags.find((tag) =>
+            tag.toLowerCase().includes(keyword.toLowerCase())
+          )
         );
       });
       setFoundBlogs(results);
@@ -31,31 +32,31 @@ export default function BlogsPage() {
   };
   return (
     <>
-      <div className={styles.blogContainer}>
-        <PageTitle title = "Blog." color="#0070f3"  icon="blog"/>
-        <div className={styles.blogBlackBox}>
+      <div className={styles.headSection}>
+        <PageTitle title="Blog." color="#14B9FF" icon="blog" />
         <SearchBar filter={filter} query={query} />
+      </div>
+
+      <div className={styles.blogSection}>
         <AllBlogs blogs={foundBlogs} />
-        </div>
       </div>
     </>
   );
 }
 
-function AllBlogs({ blogs }){
+function AllBlogs({ blogs }) {
   return (
     <div className={styles.allBlogs}>
       {blogs.map((item) => (
-              <BlogCard
-                key={item.id}
-                title={item.title}
-                content={item.content}
-                id={item.id}
-                tags = {item.tags}
-                date = {item.date}
-              />
-            ))}
+        <BlogCard
+          key={item.id}
+          title={item.title}
+          content={item.content}
+          id={item.id}
+          tags={item.tags}
+          date={item.date}
+        />
+      ))}
     </div>
   );
-};
-
+}

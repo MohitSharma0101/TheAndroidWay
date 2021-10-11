@@ -3,7 +3,7 @@ import Post from '../../../components/blog/post'
 
 
 export const meta = {
-  title: 'How to create a Pulse Loading animation in Jetpack Compose',
+  id: 'how-to-create-a-pulse-loading-animation-in-jetpack-compose',
   author: 'Mohit Sharma'
 }
 
@@ -20,7 +20,7 @@ Looking Nice? The code is much nicer..!!
 Ok, now enough talking let me give you the recipe...
 Let's start with the first ingredient 
 
-## 1. Cards
+## 1 Cards
 
 As you can see we have **two circles** here first in the middle and the second one for pulse effect.
 They both are Cards with a Circle Shape wrap in a Box container to align with each other.
@@ -47,7 +47,7 @@ Now you might notice some variables here like **size & alpha** in the Card for P
 they are the properties we need to **animate** to create a pulse.
 and this takes us to the next ingredient
 
-## 2. Infinite Transition
+## 2 Infinite Transition
 
 Now, this thing is what makes compose so great with animations. 
 In Infinite Transition, the animations start running as soon as Composables enter the composition and do not stop unless they are removed.

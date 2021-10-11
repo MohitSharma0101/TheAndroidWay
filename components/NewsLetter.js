@@ -43,14 +43,14 @@ function Form() {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          reqstatered
+          required
         />
         <label htmlFor="email">Email:</label>
         <input
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          reqstatered
+          required
         />
         <Subscribe uiState={uiState} />
       </form>

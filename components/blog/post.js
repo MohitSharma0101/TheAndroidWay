@@ -1,27 +1,68 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../../styles/Mdx.module.scss";
+import styles from "../../styles/Blog.module.scss";
 import BlogCard from "../blog/BlogCard";
 import { getTopThreePost } from "../../pages/blog/data";
 import { getBlog } from "../../pages/blog/data";
 import MDX from "../MDX";
 
 export default function Post({ children, meta }) {
-  const { title, author } = meta;
-  const blog = getBlog(title);
-  const readNextBlogs = getTopThreePost("Compose UI", title);
-
+  const { id, author } = meta;
+  const blog = getBlog(id);
+  console.log(blog);
+  const readNextBlogs = getTopThreePost(blog.tags[0], id);
 
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>{blog.title}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={styles.metaSection}>
+        <div className={styles.content}>
+          <Tags blog={blog} />
+          <div className={styles.title}>{blog.title}</div>
+          <div className={styles.date}>{blog.date}</div>
+        </div>
+        <div className={styles.cover}>
+          <Cover title={id} />
+        </div>
+      </div>
+      <div className={styles.post}>
+        <MDX>{children}</MDX>
+      </div>
+      <ReadNextSection blogs={readNextBlogs} />
+    </>
+  );
+}
+
+function Tags({ blog }) {
+  return (
+    <div className={styles.tags}>
+      {blog.tags.map((item) => (
+        <span key={item} className={styles.tag}>
+          {item}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export function PreviousPost({ children, meta }) {
+  const { id, author } = meta;
+  const blog = getBlog(id);
+  console.log(blog);
+  const readNextBlogs = getTopThreePost(blog.tags[0], id);
+
+  return (
+    <>
+      <Head>
+        <title>{blog.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
         <div className={styles.postPage}>
-          <Cover title={title} />
-
+          <Cover title={id} />
           <div className={styles.blogContainer}>
             <div className={styles.content}>
               <div className={styles.allTags}>
@@ -42,7 +83,6 @@ export default function Post({ children, meta }) {
     </>
   );
 }
-
 
 function ReadNextSection({ blogs }) {
   return (
@@ -66,14 +106,12 @@ function ReadNextSection({ blogs }) {
 
 function Cover({ title }) {
   return (
-    <div className={styles.coverContainer}>
-      <Image
-        className={styles.blogCover}
-        src={`/blog-cover/${title}.png`}
-        alt="blog-cover"
-        width={720}
-        height={400}
-      />
-    </div>
-  );
+    <Image
+      className={styles.blogCover}
+      src={`/blog-cover/${title}.png`}
+      alt="blog-cover"
+      width={720}
+      height={400}
+    />
+  )
 }

@@ -2,19 +2,34 @@
 
 $secondary-dark: #2e2e2e;
 $on-secondary-dark: #434343;
-$primary-blue: #14B9FF;
+$primary-blue: #14b9ff;
 $tag-color: #121212;
 $secondary-blue: #0070f3;
 
 .postPage {
   width: 100%;
   margin-bottom: 5rem;
-  
- 
 }
 
 .allBlogsContainer {
   display: flex;
+}
+
+.headSection {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1f2528;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: rgba(8, 8, 8, 0.3) 0px 15px 15px;
+
+  @include mobile() {
+    flex-direction: column;
+    gap: 8px;
+    padding: 1rem;
+  }
 }
 
 .allBlogs {
@@ -26,35 +41,32 @@ $secondary-blue: #0070f3;
   align-items: center;
 }
 
-.blogBlackBox {
+.blogSection {
   width: 100%;
-  background-color: $secondary-dark;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 4rem;
 }
 
 .blogCard {
-
-$border-radius:1rem;
+  $border-radius: 1rem;
 
   width: 20rem;
   padding-bottom: 1rem;
   border-radius: $border-radius;
-  background-color: $on-secondary-dark;
-  transition: transform .2s; 
+  background-color: #1f2528;
+  transition: transform 0.2s;
   flex-grow: 1;
   margin: 2rem;
   cursor: pointer;
   max-width: 26rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-  &:hover{
-    transform: scale(1.1);
+  &:hover {
+    transform: scale(1.09);
   }
-  
+
   @include tablet() {
     max-width: 30rem;
   }
@@ -86,7 +98,7 @@ $border-radius:1rem;
     color: white;
   }
 
-  .allTags{
+  .allTags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -111,7 +123,6 @@ $border-radius:1rem;
     padding: 0.5rem;
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
-
   }
 }
 
@@ -124,7 +135,97 @@ $border-radius:1rem;
   height: 100%;
 }
 
+// Post Page
+
+.metaSection {
+  background-color: #1f2528;
+  z-index: 1000;
+  padding: 2rem;
+  padding-top: 1rem;
+  box-shadow: rgba(8, 8, 8, 0.3) 0px 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap:16px;
+  
+  
+
+   .cover{
+     width:40%;
+     border-radius: 4rem;
+
+     @include tablet(){
+       display:none;
+     }
+   }
 
 
+  .tags {
+    .tag {
+      color: white;
+      width: fit-content;
+      text-align: center;
+      margin-top: 0.4rem;
+      margin-right: 8px;
+      letter-spacing: 0.1em;
+      background-color: $tag-color;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.8rem;
+      font-size: 1rem;
+    }
+  }
 
+  .title{
+    color: $primary-blue;
+    font-size: 2.6rem;
+    font-weight: bold;
+    line-height: 3.6rem;
+    margin-top: 1rem;
 
+    @include mobile() {
+      font-size: 2.4rem;
+      line-height: 2.6rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .date {
+    margin-top: 8px;
+    font-size: 1rem;
+    color: white;
+    opacity: 85%;
+  }
+
+}
+
+.post{
+  width:70%;
+  padding: 0 2rem;
+
+  @include tablet(){
+    width:100%;
+  }
+}
+
+.readNextSection {
+  h4 {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin: 2rem 0;
+    font-weight: 500;
+  }
+
+  .readNextcontainer {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+
+    @include mobile() {
+      padding: 0;
+    }
+  }
+}

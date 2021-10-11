@@ -4,9 +4,10 @@ import SearchBar from "../SearchBar";
 import SnippetCard from "../snippets/SnippetCard";
 import getAllSnippets from "../../pages/snippets/snippetData";
 import { useState } from "react";
+import Headroom from "react-headroom";
 
 export default function SnippetsPage() {
-  const snippets = getAllSnippets();
+  const snippets = getAllSnippets().reverse();
   const [query, setQuery] = useState("");
   const [foundSnippets, setFoundSnippets] = useState(snippets);
   const filter = (e) => {
@@ -32,9 +33,17 @@ export default function SnippetsPage() {
 
   return (
     <>
-      <PageTitle title="Snippets." color="#30DC80" icon="snippet" />
-      <div className={styles.snippetSection}>
+      <div className={styles.headSection}>
+        <PageTitle
+          title="Snippets"
+          color="#30DC80"
+          icon="snippet"
+          desc="Short solutions to trival probelms in Android Dev."
+        />
         <SearchBar filter={filter} query={query} />
+      </div>
+
+      <div className={styles.snippetSection}>
         <div className={styles.snippetConatiner}>
           {foundSnippets.map((item) => (
             <SnippetCard key={item.title} {...item} />

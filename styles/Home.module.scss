@@ -1,8 +1,5 @@
 @import "mixins";
 
-.page {
-  background-color: #121212;
-}
 
 .pageTitle {
   color: white;
@@ -20,23 +17,20 @@
 .container {
   padding: 0;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   .blackBox {
     width: 75%;
-    margin: 6rem;
+    margin: 1rem;
     padding: 2rem;
-    padding-bottom: 0;
     border-radius: 2rem;
-    background-color: #2e2e2e;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: space-between;
-    gap: 10rem 0rem;
+    gap: 2rem 0rem;
 
     @include mobile() {
       width: 100%;
@@ -59,19 +53,17 @@
 .categoryCard {
   width: 16rem;
   margin: 0.5rem;
-  margin-top: -5rem;
-  background-color: #434343;
-  border-radius: 2rem;
+  background-color: #1F2528;
+  border-radius: 1rem;
   padding: 1.5rem;
   cursor: pointer;
   transition: transform 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   @include mobile() {
     width: 20rem;
-    margin-top: -5.5rem;
     border-radius: 1rem;
     padding: 1.5rem;
-    background-color: #2e2e2e;
   }
 
   &:hover {
@@ -95,7 +87,7 @@
 .circle {
   width: 60px;
   height: 60px;
-  background-color: #2e2e2e;
+  background-color: #15191B;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -103,6 +95,5 @@
 
   @include mobile() {
     margin-left: 0.5rem;
-    background-color: #121212;
   }
 }

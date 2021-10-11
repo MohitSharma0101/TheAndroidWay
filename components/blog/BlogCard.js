@@ -4,13 +4,13 @@ import Image from "next/image";
 import styles from "../../styles/Blog.module.scss";
 
 
-export default function BlogCard({ title, id, content, tags, date }) {
+export default function BlogCard({ title, id, content, tags, date , style }) {
   return (
     <Link href={`/blog/${id}`} passHref>
-      <div className={styles.blogCard}>
+      <div style={style} className={styles.blogCard}>
         <Image
           className={styles.blogCover}
-          src={`/blog-cover/${title}.png`}
+          src={`/blog-cover/${id}.png`}
           alt="blog-cover"
           width={720}
           height={400}

@@ -15,13 +15,14 @@ function Logo() {
 }
 
 export default function Fotter() {
+  const currentYear = new Date().getFullYear()    
   return (
     <>
       <footer className={styles.fotter}>
         <NewsLetter />
         <div className={styles.signature}>
           <Logo/>
-          <span>© 2020-present Mohit Sharma. All Rights Reserved.</span>
+          <span>© {currentYear}-present Mohit Sharma. All Rights Reserved.</span>
         </div>
       </footer>
     </>

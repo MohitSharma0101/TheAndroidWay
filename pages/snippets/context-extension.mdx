@@ -1,0 +1,87 @@
+import Snippets from '../../components/snippets/Snippets'
+
+export const meta = {
+  title: 'Context Extension',
+  desc : 'A list of all Context Extensions',
+  author: 'Mohit Sharma'
+}
+
+## Copy Text to Clipboard
+
+A simple extension function to copy any String to clipboard.
+
+### Usage🎯
+Call it on any `String`
+
+```
+//Inside Activity
+this.copyToClipboard("randomString")
+
+//Insdie Fragment
+requiredContext().copyToClipboard("randomString")
+```
+
+### Code💻
+
+```
+fun Context.copyToClipboard(text: String){
+    val clipboard = getSystemService(
+     					 Context.CLIPBOARD_SERVICE
+   					 ) as ClipboardManager
+    val clip = ClipData.newPlainText("label",text)
+    clipboard.setPrimaryClip(clip)
+}
+```
+---
+
+## Set Device Wallpaper 
+
+A simple extension function to set the device wallpaper programmatically.
+
+### Usage🎯
+
+Call it on a `Context` and pass the bitmap you want to set as the device wallpaper.
+
+```
+//Inside Activity
+this.setWallpaper(bitmap)
+
+//Insdie Fragment
+requiredContext().setWallpaper(bitmap)
+
+```
+
+### Code 💻
+
+```kotlin
+fun Context.setWallpaper(bitmap:Bitmap){
+	val wallpaperManager = WallpaperManager.getInstance(this)
+	wallpaperManager.setBitmap(bitmap)
+}
+```
+---
+
+## Get Drawable by Id
+
+A simple extension function to get the drawable resources by id.
+
+## Usage 🎯
+
+Call it with a `Context` and pass the drawable resource id.
+
+```kotlin
+//Inside Activity
+this.getDrawableById(R.drawable.drawableId)
+
+//Insdie Fragment
+requiredContext().getDrawableById(R.drawable.drawableId)
+```
+
+## Code 💻
+
+```kotlin
+fun Context.getDrawableById(id: Int) = ResourcesCompat.getDrawable(this.resources, id, null)
+```
+
+
+export default ({ children }) => <Snippets meta ={meta}>{children}</Snippets>

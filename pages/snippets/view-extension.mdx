@@ -1,6 +1,5 @@
 import Snippets from '../../components/snippets/Snippets'
 import Anchor from '../../components/Anchor'
-import Code from '../../components/Code'
 
 export const meta = {
   title: 'View Extension',
@@ -8,62 +7,62 @@ export const meta = {
   author: 'Mohit Sharma'
 }
 
-export const index = [
-  "Remove the View",
-  "Show the View"
-]
 
-<Anchor> Remove the View </Anchor>
+## Remove the View 
 
 Change the visibilty of the `View` to `View.GONE`.
 
 ### Usage🎯
 Call it on any `View`
 
-<Code>{`myView.gone()
-`}</Code>
+```
+myView.gone()
+```
 
 ### Code💻
 
-<Code>{`fun View.gone() {
+```
+fun View.gone() {
     this.visibility = View.GONE
 }
-`}</Code>
+```
 
 ---
 
-<Anchor>Show the View</Anchor>
+## Show the View
 
 Change the visibilty of the `View` to `View.VISIBLE`.
 
 ### Usage🎯
 Call it on any `View`
 
-<Code>{`myView.visible()
-`}</Code>
+```
+myView.visible()
+```
 
 ### Code💻
 
-<Code>{`fun View.visible() {
+```
+fun View.visible() {
     this.visibility = View.VISIBLE
 }
-`}</Code>
+```
 
 ---
 
-<Anchor>Resize the View</Anchor>
+## Resize the View
 
 Set Width and height of a View Programmatically.
 
 ### Usage🎯
 Call it on any `View`
-<Code>{`
+```
 myView.resize(50 , 100)
-`}</Code>
+```
 
 ### Code💻
 
-<Code>{`
+```
 fun View.resize(width: Int, height: Int) {
     val lp = this.layoutParams
     lp?.let {
@@ -72,7 +71,7 @@ fun View.resize(width: Int, height: Int) {
         layoutParams = lp
     }
 }
-`}</Code>
+```
 
 
 
