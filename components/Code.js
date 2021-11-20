@@ -4,7 +4,8 @@ import { useState } from "react";
 import "prismjs/components/prism-kotlin";
 
 
-export default function Code({ children }) {
+export default function Code({ children , lang="language-kt" }) {
+  
   const style = {
     backgroundColor: "#2E2E2E",
     borderRadius: "0.5rem",
@@ -38,7 +39,7 @@ export default function Code({ children }) {
           {isCopy}
         </button>
       </div>
-      <pre className="language-kt">
+      <pre className={lang}>
         <code>{children}</code>
       </pre>
     </div>

@@ -22,6 +22,7 @@ $secondary-blue: #0070f3;
   z-index: 1000;
 
   @include mobile() {
+    padding: 0.8rem;
   }
 
   .logo {
@@ -70,13 +71,13 @@ $secondary-blue: #0070f3;
   }
 
   h1 {
-    color: #29b6f6;
-    font-size: 2.25rem;
+    color: #0a0b0c;
+    font-size: 2rem;
     line-height: 1.1;
-  
+   
 
     @include mobile() {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
 
@@ -84,6 +85,10 @@ $secondary-blue: #0070f3;
     color: white;
     font-size: 1rem;
     margin-top: 4px;
+
+    @include mobile() {
+      font-size: 0.8rem;
+    }
   }
 
 }
@@ -97,8 +102,12 @@ $secondary-blue: #0070f3;
   align-items: center;
   justify-content: center;
   align-self: center;
-  margin: 0 1rem;
+  margin-right: 12px;
   padding: 12px;
+
+  @include mobile() {
+    padding:8px;
+  }
 }
 
 // Search bar

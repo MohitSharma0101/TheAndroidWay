@@ -9,7 +9,7 @@ import MDX from "../MDX";
 export default function Post({ children, meta }) {
   const { id, author } = meta;
   const blog = getBlog(id);
-  console.log(blog);
+
   const readNextBlogs = getTopThreePost(blog.tags[0], id);
 
   return (
@@ -23,9 +23,6 @@ export default function Post({ children, meta }) {
           <Tags blog={blog} />
           <div className={styles.title}>{blog.title}</div>
           <div className={styles.date}>{blog.date}</div>
-        </div>
-        <div className={styles.cover}>
-          <Cover title={id} />
         </div>
       </div>
       <div className={styles.post}>
@@ -51,7 +48,7 @@ function Tags({ blog }) {
 export function PreviousPost({ children, meta }) {
   const { id, author } = meta;
   const blog = getBlog(id);
-  console.log(blog);
+
   const readNextBlogs = getTopThreePost(blog.tags[0], id);
 
   return (

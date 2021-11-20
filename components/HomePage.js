@@ -1,46 +1,70 @@
-import React from "react"
-import styles from "../styles/Home.module.scss"
-import Link from "next/link"
-import Image from "next/image"
-import { useState } from "react"
+import React from "react";
+import styles from "../styles/Home.module.scss";
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function HomePage() {
   return (
     <>
-      <h1 className={styles.pageTitle}>Categories.</h1>
+      <HeroSection />
+      {/* <h1 className={styles.pageTitle}>Explore.</h1> */}
       <Categories />
     </>
-  )
+  );
+}
+
+function HeroSection() {
+  return (
+    <>
+      <div className={styles.hero}>
+        <div className={styles.heading}>
+          <h1>Become a Better</h1>
+          <h1>Android</h1>
+          <h1 className={styles.underline}>Developer.</h1>
+          <h3>Let’s do thing the android way...</h3>
+        </div>
+        <div className={styles.heroImg}>
+          <Image
+            src="/hero1.png"
+            width="331"
+            height="348.56"
+            alt="the android way"
+          />
+        </div>
+      </div>
+    </>
+  );
 }
 
 function Categories() {
   return (
     <div className={styles.container}>
-      <div className={styles.blackBox}>
+      <div className={styles.categories}>
         {categories.map((category) => (
           <CategoryCard key={category.title} {...category} />
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 function CategoryCard({ title, desc, color, svg, link }) {
-  const [border, setBorder] = useState("0px")
+  const [border, setBorder] = useState("0px");
 
   const borderStyle = {
     border: `${border} solid ${color}`,
-  }
+  };
   return (
     <Link href={link} passHref>
       <div
         className={styles.categoryCard}
         style={borderStyle}
         onMouseEnter={() => {
-          setBorder("1.5px")
+          setBorder("1.5px");
         }}
         onMouseLeave={() => {
-          setBorder("0px")
+          setBorder("0px");
         }}
       >
         <div className={styles.circle}>{svg}</div>
@@ -48,12 +72,12 @@ function CategoryCard({ title, desc, color, svg, link }) {
         <p>{desc}</p>
       </div>
     </Link>
-  )
+  );
 }
 
 const categories = [
   {
-    title: "Blog",
+    title: "Learn",
     desc: "Learn android development by in-dept tutorial blogs.",
     color: "#29B6F6",
     svg: <Image src="/icons/blog.svg" width="40" height="40" alt="Blog" />,
@@ -107,4 +131,4 @@ const categories = [
     ),
     link: "/blog",
   },
-]
+];

@@ -65,7 +65,7 @@ fun Context.setWallpaper(bitmap:Bitmap){
 
 A simple extension function to get the drawable resources by id.
 
-## Usage 🎯
+### Usage 🎯
 
 Call it with a `Context` and pass the drawable resource id.
 
@@ -77,10 +77,36 @@ this.getDrawableById(R.drawable.drawableId)
 requiredContext().getDrawableById(R.drawable.drawableId)
 ```
 
-## Code 💻
+### Code 💻
 
 ```kotlin
 fun Context.getDrawableById(id: Int) = ResourcesCompat.getDrawable(this.resources, id, null)
+```
+
+## Get City Name
+
+Kotlin Extension Function to get the City Name from the latitude and longitude.
+
+### Usage 🎯
+
+Call it with a `Context` and pass the longitude and latitude.
+
+```kotlin
+//Inside Activity
+this.getCityName(latitude, longitude)
+
+//Insdie Fragment
+requiredContext().getCityName(latitude, longitude)
+```
+
+### Code 💻
+
+```kotlin
+fun Context.getCityName(latitude: Double, longitude: Double): String {
+    val geoCoder = Geocoder(this, Locale.getDefault())
+    val address = geoCoder.getFromLocation(latitude, longitude, 1)
+    return address[0].locality
+}
 ```
 
 

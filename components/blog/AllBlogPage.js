@@ -33,7 +33,7 @@ export default function BlogsPage() {
   return (
     <>
       <div className={styles.headSection}>
-        <PageTitle title="Blog." color="#14B9FF" icon="blog" />
+        <PageTitle title="Learn" color="#14B9FF" icon="blog" />
         <SearchBar filter={filter} query={query} />
       </div>
 

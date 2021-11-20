@@ -7,10 +7,12 @@ const tags = {
   interactive: "Interactive",
   button: "Button",
   progressIndicator: "Progress Indicator",
+  animation:"Animation"
 };
 
 const types = {
     gif : "gif",
+    png:"png"
 }
 
 const data = [
@@ -27,6 +29,13 @@ const data = [
     tags: [tags.progressIndicator],
     date: '21 sept 2021',
     type: types.gif
+  },
+  {
+    title: "Double-Tap to Like",
+    desc: "Instagram's Double-Tap to Like Animation.",
+    tags: [tags.animation],
+    date: '21 sept 2021',
+    type: types.png
   },
  
 ];

@@ -1,0 +1,91 @@
+import Compose from '../../components/compose/Compose'
+import Image from "next/image";
+
+
+
+export const meta = {
+    title: "Pulse Loading",
+ tutorialId: 'how-to-create-a-pulse-loading-animation-in-jetpack-compose'
+}
+
+
+## About
+A Pulse Loading Indicator for indeterminate progress.
+
+
+## Preview✨
+ <Image
+            src="/compose/Pulse Loading.gif"
+            alt="compose-ui-preview"
+            width="720"
+            height="400"
+          /> 
+
+## Usage🎯
+
+```
+@Composable
+    fun EasyDemo() {
+        //Simple with Default Values
+       PulseLoading()
+
+        //Still Simple with customization 
+       PulseLoading(
+            durationMillis = 900,
+            minPulseSize = 20f,
+            maxPulseSize = 100f,
+            pulseColor = Color.Red,
+            centreColor = Color.Black
+        )
+    }
+```
+
+## Source code💻
+Copy and Paste this code into your Project and used it as mentioned above.
+
+```
+@Composable
+fun PulseLoading(
+    durationMillis:Int = 1000,
+    maxPulseSize:Float = 300f,
+    minPulseSize:Float = 50f,
+    pulseColor:Color = Color(234,240,246),
+    centreColor:Color =  Color(66,133,244)
+){
+    val infiniteTransition = rememberInfiniteTransition()
+    val size by infiniteTransition.animateFloat(
+        initialValue = minPulseSize,
+        targetValue = maxPulseSize,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis, easing = LinearEasing),
+            repeatMode = RepeatMode.Restart
+        )
+    )
+    val alpha by infiniteTransition.animateFloat(
+        initialValue = 1f,
+        targetValue = 0f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis, easing = LinearEasing),
+            repeatMode = RepeatMode.Restart
+        )
+    )
+    Box(contentAlignment = Alignment.Center,modifier = Modifier.fillMaxSize()) {
+        Card(
+            shape = CircleShape,
+            modifier = Modifier.size(size.dp).align(Alignment.Center).alpha(alpha),
+            backgroundColor = pulseColor,
+            elevation = 0.dp
+        ) {}
+        Card(modifier = Modifier
+            .size(minPulseSize.dp)
+            .align(Alignment.Center),
+            shape = CircleShape,
+            backgroundColor = centreColor){}
+    }
+}
+
+```
+
+
+export default ({ children }) => <Compose meta ={meta}>{children}</Compose>
+

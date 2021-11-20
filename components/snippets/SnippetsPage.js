@@ -4,10 +4,9 @@ import SearchBar from "../SearchBar";
 import SnippetCard from "../snippets/SnippetCard";
 import getAllSnippets from "../../pages/snippets/snippetData";
 import { useState } from "react";
-import Headroom from "react-headroom";
 
 export default function SnippetsPage() {
-  const snippets = getAllSnippets().reverse();
+  const snippets = getAllSnippets().sort((a, b) => 0.5 - Math.random());
   const [query, setQuery] = useState("");
   const [foundSnippets, setFoundSnippets] = useState(snippets);
   const filter = (e) => {

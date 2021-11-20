@@ -1,0 +1,92 @@
+import Compose from '../../components/compose/Compose'
+import Image from "next/image";
+
+
+
+export const meta = {
+    title: "Double-Tap to Like",
+ tutorialId: 'instagram-double-tap-to-like-animation-in-jetpack-compose'
+}
+
+
+## About
+Double Tap animation inspired by Instagram's Double tap to like animation which let user like an Image just by double tapping on it.
+
+## Preview✨
+ <Image
+            src="/blog-cover/instagram-double-tap-to-like-animation-in-jetpack-compose.png"
+            alt="compose-ui-preview"
+            width="720"
+            height="400"
+          /> 
+
+## Usage🎯
+
+```
+@Composable
+fun EasyDemo() {
+        DoubleTapAnimation(
+            imageResources = R.drawable.test_img,
+            iconResource = R.drawable.heart_filled_white
+        ){
+            //on Double-tap callback function
+            Log.d("pick","liked")
+        }
+}
+```
+
+## Source code💻
+Copy and Paste this code into your Project and used it as mentioned above.
+
+```
+@Composable
+fun DoubleTapAnimation(
+    imageResources: Int,
+    iconResource: Int,
+    size:Dp = 250.dp,
+    onDoubleTap:()->Unit
+) {
+    var isLike by remember {
+        mutableStateOf(false)
+    }
+    val animatedSize by animateDpAsState(
+        targetValue = if (isLike) size else 0.dp,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = 500f // because I like it this way
+        )
+    )
+    Box(modifier = Modifier.fillMaxSize()) {
+        Image(
+            painter = painterResource(id = imageResources),
+            contentDescription = "Image",
+            modifier = Modifier
+                .align(Alignment.Center)
+                .pointerInput(Unit) {
+                    detectTapGestures(
+                        onDoubleTap = {
+                            isLike = true
+                            onDoubleTap()
+                        }
+                    )
+                })
+        if (isLike) {
+            Icon(
+                painterResource(id = iconResource),
+                tint = Color.White,
+                modifier = Modifier
+                    .size(animatedSize)
+                    .align(Alignment.Center),
+                contentDescription = ""
+            )
+            if (animatedSize == size) {
+                isLike = false
+            }
+        }
+    }
+}
+```
+
+
+export default ({ children }) => <Compose meta ={meta}>{children}</Compose>
+

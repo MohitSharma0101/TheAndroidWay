@@ -12,7 +12,7 @@ body {
 }
 
 html{
-	scroll-padding-top: 4.1rem;
+	scroll-padding-top: 8rem;
 }
 
 a {
@@ -96,11 +96,11 @@ code[class*="language-"] {
 	hyphens: none;
 }
 
-pre[class*="language-"]::selection,
+/* pre[class*="language-"]::selection,
 code[class*="language-"]::selection {
 	text-shadow: none;
 	background: #b3d4fc;
-}
+} */
 
 @media print {
 	pre[class*="language-"],
