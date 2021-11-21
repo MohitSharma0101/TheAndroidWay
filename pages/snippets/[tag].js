@@ -1,5 +1,5 @@
 import Snippets from "../../components/snippets/Snippets";
-import { getAllTags } from "./snippetData";
+import { getAllTags } from "../../components/snippets/snippetData";
 
 export const meta = {
   title: "context",

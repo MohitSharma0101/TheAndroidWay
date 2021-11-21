@@ -1,9 +1,8 @@
 import styles from "../../styles/Compose.module.scss";
 import Head from "next/head";
-import { getComposeUi } from "../../pages/compose/composeData";
 import MDX from "../MDX";
 import BlogCard from "../blog/BlogCard";
-import { getBlog } from "../../pages/blog/data";
+import { getBlog } from "../blog/data";
 import { useState } from "react";
 import PageTitle from "../PageTitle";
 import Image from "next/image"

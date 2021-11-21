@@ -1,4 +1,4 @@
-import Code from "../../components/Code";
+import Code from "../Code";
 
 export const tags = {
   view: "View",

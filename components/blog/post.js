@@ -2,8 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../../styles/Blog.module.scss";
 import BlogCard from "../blog/BlogCard";
-import { getTopThreePost } from "../../pages/blog/data";
-import { getBlog } from "../../pages/blog/data";
+import { getTopThreePost } from "./data";
+import { getBlog } from "./data";
 import MDX from "../MDX";
 
 export default function Post({ children, meta }) {

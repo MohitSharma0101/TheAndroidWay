@@ -1,5 +1,5 @@
 import BlogCard from "../blog/BlogCard";
-import getAllBlogs from "../../pages/blog/data";
+import getAllBlogs from "./data";
 import { useState } from "react";
 import styles from "../../styles/Blog.module.scss";
 import SearchBar from "../SearchBar";
