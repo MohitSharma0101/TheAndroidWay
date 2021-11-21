@@ -1,79 +1,77 @@
-import Snippets from '../../../components/snippets/Snippets'
-import Anchor from '../../../components/Anchor'
+// import Snippets from '../../../components/snippets/Snippets'
+// import Anchor from '../../../components/Anchor'
 
-export const meta = {
-  title: 'View Extension',
-  desc : 'A list of all View Extensions',
-  author: 'Mohit Sharma'
-}
-
-
-## Remove the View 
-
-Change the visibilty of the `View` to `View.GONE`.
-
-### Usage🎯
-Call it on any `View`
-
-```
-myView.gone()
-```
-
-### Code💻
-
-```
-fun View.gone() {
-    this.visibility = View.GONE
-}
-```
-
----
-
-## Show the View
-
-Change the visibilty of the `View` to `View.VISIBLE`.
-
-### Usage🎯
-Call it on any `View`
-
-```
-myView.visible()
-```
-
-### Code💻
-
-```
-fun View.visible() {
-    this.visibility = View.VISIBLE
-}
-```
-
----
-
-## Resize the View
-
-Set Width and height of a View Programmatically.
-
-### Usage🎯
-Call it on any `View`
-```
-myView.resize(50 , 100)
-```
-
-### Code💻
-
-```
-fun View.resize(width: Int, height: Int) {
-    val lp = this.layoutParams
-    lp?.let {
-        lp.width = width
-        lp.height = height
-        layoutParams = lp
-    }
-}
-```
+// export const meta = {
+//   title: 'View Extension',
+//   desc : 'A list of all View Extensions',
+//   author: 'Mohit Sharma'
+// }
 
 
+// ## Remove the View 
+
+// Change the visibilty of the `View` to `View.GONE`.
+
+// ### Usage🎯
+// Call it on any `View`
+
+// ```
+// myView.gone()
+// ```
+
+// ### Code💻
+
+// ```
+// fun View.gone() {
+//     this.visibility = View.GONE
+// }
+// ```
+
+// ---
+
+// ## Show the View
+
+// Change the visibilty of the `View` to `View.VISIBLE`.
+
+// ### Usage🎯
+// Call it on any `View`
+
+// ```
+// myView.visible()
+// ```
+
+// ### Code💻
+
+// ```
+// fun View.visible() {
+//     this.visibility = View.VISIBLE
+// }
+// ```
+
+// ---
+
+// ## Resize the View
+
+// Set Width and height of a View Programmatically.
+
+// ### Usage🎯
+// Call it on any `View`
+// ```
+// myView.resize(50 , 100)
+// ```
+
+// ### Code💻
+
+// ```
+// fun View.resize(width: Int, height: Int) {
+//     val lp = this.layoutParams
+//     lp?.let {
+//         lp.width = width
+//         lp.height = height
+//         layoutParams = lp
+//     }
+// }
+// ```
 
 
 
@@ -84,4 +82,6 @@ fun View.resize(width: Int, height: Int) {
 
 
 
-export default ({ children }) => <Snippets meta ={meta}>{children}</Snippets>
+
+
+<!-- // export default ({ children }) => <Snippets meta ={meta}>{children}</Snippets> -->

@@ -1,113 +1,113 @@
-import Snippets from '../../components/snippets/Snippets'
+// import Snippets from '../../components/snippets/Snippets'
 
-export const meta = {
-  title: 'Context Extension',
-  desc : 'A list of all Context Extensions',
-  author: 'Mohit Sharma'
-}
+// export const meta = {
+//   title: 'Context Extension',
+//   desc : 'A list of all Context Extensions',
+//   author: 'Mohit Sharma'
+// }
 
-## Copy Text to Clipboard
+// ## Copy Text to Clipboard
 
-A simple extension function to copy any String to clipboard.
+// A simple extension function to copy any String to clipboard.
 
-### Usage🎯
-Call it on any `String`
+// ### Usage🎯
+// Call it on any `String`
 
-```
-//Inside Activity
-this.copyToClipboard("randomString")
+// ```
+// //Inside Activity
+// this.copyToClipboard("randomString")
 
-//Insdie Fragment
-requiredContext().copyToClipboard("randomString")
-```
+// //Insdie Fragment
+// requiredContext().copyToClipboard("randomString")
+// ```
 
-### Code💻
+// ### Code💻
 
-```
-fun Context.copyToClipboard(text: String){
-    val clipboard = getSystemService(
-     					 Context.CLIPBOARD_SERVICE
-   					 ) as ClipboardManager
-    val clip = ClipData.newPlainText("label",text)
-    clipboard.setPrimaryClip(clip)
-}
-```
----
+// ```
+// fun Context.copyToClipboard(text: String){
+//     val clipboard = getSystemService(
+//      					 Context.CLIPBOARD_SERVICE
+//    					 ) as ClipboardManager
+//     val clip = ClipData.newPlainText("label",text)
+//     clipboard.setPrimaryClip(clip)
+// }
+// ```
+// ---
 
-## Set Device Wallpaper 
+// ## Set Device Wallpaper 
 
-A simple extension function to set the device wallpaper programmatically.
+// A simple extension function to set the device wallpaper programmatically.
 
-### Usage🎯
+// ### Usage🎯
 
-Call it on a `Context` and pass the bitmap you want to set as the device wallpaper.
+// Call it on a `Context` and pass the bitmap you want to set as the device wallpaper.
 
-```
-//Inside Activity
-this.setWallpaper(bitmap)
+// ```
+// //Inside Activity
+// this.setWallpaper(bitmap)
 
-//Insdie Fragment
-requiredContext().setWallpaper(bitmap)
+// //Insdie Fragment
+// requiredContext().setWallpaper(bitmap)
 
-```
+// ```
 
-### Code 💻
+// ### Code 💻
 
-```kotlin
-fun Context.setWallpaper(bitmap:Bitmap){
-	val wallpaperManager = WallpaperManager.getInstance(this)
-	wallpaperManager.setBitmap(bitmap)
-}
-```
----
+// ```kotlin
+// fun Context.setWallpaper(bitmap:Bitmap){
+// 	val wallpaperManager = WallpaperManager.getInstance(this)
+// 	wallpaperManager.setBitmap(bitmap)
+// }
+// ```
+// ---
 
-## Get Drawable by Id
+// ## Get Drawable by Id
 
-A simple extension function to get the drawable resources by id.
+// A simple extension function to get the drawable resources by id.
 
-### Usage 🎯
+// ### Usage 🎯
 
-Call it with a `Context` and pass the drawable resource id.
+// Call it with a `Context` and pass the drawable resource id.
 
-```kotlin
-//Inside Activity
-this.getDrawableById(R.drawable.drawableId)
+// ```kotlin
+// //Inside Activity
+// this.getDrawableById(R.drawable.drawableId)
 
-//Insdie Fragment
-requiredContext().getDrawableById(R.drawable.drawableId)
-```
+// //Insdie Fragment
+// requiredContext().getDrawableById(R.drawable.drawableId)
+// ```
 
-### Code 💻
+// ### Code 💻
 
-```kotlin
-fun Context.getDrawableById(id: Int) = ResourcesCompat.getDrawable(this.resources, id, null)
-```
+// ```kotlin
+// fun Context.getDrawableById(id: Int) = ResourcesCompat.getDrawable(this.resources, id, null)
+// ```
 
-## Get City Name
+// ## Get City Name
 
-Kotlin Extension Function to get the City Name from the latitude and longitude.
+// Kotlin Extension Function to get the City Name from the latitude and longitude.
 
-### Usage 🎯
+// ### Usage 🎯
 
-Call it with a `Context` and pass the longitude and latitude.
+// Call it with a `Context` and pass the longitude and latitude.
 
-```kotlin
-//Inside Activity
-this.getCityName(latitude, longitude)
+// ```kotlin
+// //Inside Activity
+// this.getCityName(latitude, longitude)
 
-//Insdie Fragment
-requiredContext().getCityName(latitude, longitude)
-```
+// //Insdie Fragment
+// requiredContext().getCityName(latitude, longitude)
+// ```
 
-### Code 💻
+// ### Code 💻
 
-```kotlin
-fun Context.getCityName(latitude: Double, longitude: Double): String {
-    val geoCoder = Geocoder(this, Locale.getDefault())
-    val address = geoCoder.getFromLocation(latitude, longitude, 1)
-    return address[0].locality
-}
-```
+// ```kotlin
+// fun Context.getCityName(latitude: Double, longitude: Double): String {
+//     val geoCoder = Geocoder(this, Locale.getDefault())
+//     val address = geoCoder.getFromLocation(latitude, longitude, 1)
+//     return address[0].locality
+// }
+// ```
 
 
-export default ({ children }) => <Snippets meta ={meta}>{children}</Snippets>
+<!-- // export default ({ children }) => <Snippets meta ={meta}>{children}</Snippets> -->
