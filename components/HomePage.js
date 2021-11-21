@@ -106,7 +106,7 @@ const categories = [
     desc: "Hand curated List of most asked Android Questions.",
     color: "#FA7419",
     svg: <Image src="/icons/quiz.svg" width="30" height="30" alt="Quiz" />,
-    link: "/blog",
+    link: "/interview-prep",
   },
   {
     title: "Roadmap",
@@ -115,7 +115,7 @@ const categories = [
     svg: (
       <Image src="/icons/roadmap.svg" width="40" height="40" alt="Roadmap" />
     ),
-    link: "/blog",
+    link: "/roadmap",
   },
   {
     title: "Libraries",
@@ -129,6 +129,6 @@ const categories = [
         alt="Libraries"
       />
     ),
-    link: "/blog",
+    link: "/libraries",
   },
 ];
