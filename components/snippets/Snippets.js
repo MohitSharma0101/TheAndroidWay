@@ -5,29 +5,9 @@ import Link from "next/link";
 import getAllSnippets from "./snippetData";
 import Head from "next/head";
 import PageTitle from "../PageTitle";
-import Code from "../Code";
 import { useState } from "react";
 import { useHighlightSyntax } from "../util";
 
-const test = {
-  title: "Get City Name",
-  desc: "Get the City Name from the latitude and longitude.",
-  sourceCode: (
-    <Code>{`fun Context.getCityName(latitude: Double, longitude: Double): String {
-      val geoCoder = Geocoder(this, Locale.getDefault())
-      val address = geoCoder.getFromLocation(latitude, longitude, 1)
-      return address[0].locality
-  }`}</Code>
-  ),
-  usage: (
-    <Code>{` //Inside Activity
-  this.getCityName(latitude, longitude)
-
-  //Insdie Fragment
-  requiredContext().getCityName(latitude, longitude)
-  `}</Code>
-  ),
-};
 
 function Snippet({ title, desc, sourceCode, usage ,tag , code}) {
   const [showDetails, setshowDetails] = useState(true);
